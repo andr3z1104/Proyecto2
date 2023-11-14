@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package clases;
 
 /**
@@ -29,57 +26,36 @@ public class Bin_Heap {
         return getRoot() == null;
     }
     
-//    public void insertNodo(String Nombre, int tipo, int tamano){
-//        Nodo_Documento nodo = new Nodo_Documento(Nombre, tipo, tamano);
-//        
-//        if(isEmpty()){
-//            setRoot(nodo);
-//        }
-//        else{
-//            Nodo_Documento pointer = getRoot();
-//            while(true){
-//                if(tipo > pointer.getTipo()){
-//                    if(pointer.getLeftSon() == null){
-//                        pointer.setLeftSon(nodo);
-//                        heapifyUp(nodo);
-//                        break;
-//                    }
-//                    else{
-//                        pointer = pointer.getLeftSon();
-//                    }
-//                }
-//                else{
-//                    if(pointer.getRightSon() == null){
-//                        pointer.setRightSon(nodo);
-//                        heapifyDown(nodo);
-//                        break;
-//                    }
-//                    else{
-//                        pointer = pointer.getRightSon();
-//                    }
-//                }
-//            }
-//        }
-//    }
-//    
-    
-    public void insert(String nombre, int tipo, int tamano) {
-        Nodo_Documento nodo = new Nodo_Documento(nombre, tipo, tamano);
-        if (isEmpty()) {
-            setRoot(nodo); 
-        } else {
-            insertarRecur(getRoot(), nodo);
+    public void insertNodo(String Nombre, String tipo, int size, int segundos){
+        Nodo_Documento nodo = new Nodo_Documento(Nombre, tipo, size, segundos);
+        
+        if(isEmpty()){
+            setRoot(nodo);
         }
-        heapifyUp(nodo);
-    }
-
-    private void insertarRecur(Nodo_Documento pointer1, Nodo_Documento pointer2) {
-        if (pointer1.getLeftSon() == null) {
-            pointer1.setLeftSon(pointer2);
-        } else if (pointer1.getRightSon() == null) {
-            pointer1.setRightSon(pointer2);
-        } else {
-            insertarRecur(pointer1.getLeftSon(), pointer2);
+        else{
+            Nodo_Documento pointer = getRoot();
+            while(true){
+                if(segundos > pointer.getSegundos()){
+                    if(pointer.getLeftSon() == null){
+                        pointer.setLeftSon(nodo);
+                        heapifyUp(nodo);
+                        break;
+                    }
+                    else{
+                        pointer = pointer.getLeftSon();
+                    }
+                }
+                else{
+                    if(pointer.getRightSon() == null){
+                        pointer.setRightSon(nodo);
+                        heapifyUp(nodo);
+                        break;
+                    }
+                    else{
+                        pointer = pointer.getRightSon();
+                    }
+                }
+            }
         }
     }
     
@@ -90,14 +66,9 @@ public class Bin_Heap {
             return null;
         }else{
             Nodo_Documento pointer = getRoot();
-//            Nodo_Documento pointerLeft = getRoot().getLeftSon();
-//            Nodo_Documento pointerRight = getRoot().getRightSon();
+
             
             Nodo_Documento pointer2 = getLastNode();
-//            pointer2.setLeftSon(pointerLeft);
-//            pointer2.setLeftSon(pointerRight);
-//            pointer.setLeftSon(null);
-//            pointer.setRightSon(null);
             setRoot(pointer2);
             heapifyDown(getRoot());
             return pointer;
@@ -130,7 +101,7 @@ public class Bin_Heap {
         
         Nodo_Documento subRoot = searchSubRoot(getRoot(), nodo);
         
-        if(nodo.getTipo() < subRoot.getTipo()){
+        if(nodo.getSegundos() < subRoot.getSegundos()){
             swapNodes(nodo, subRoot);
             heapifyUp(nodo);
         }
@@ -153,10 +124,10 @@ public class Bin_Heap {
     
     public void heapifyDown(Nodo_Documento nodo){
        Nodo_Documento pointer = nodo;
-       if(pointer.getLeftSon() != null && pointer.getLeftSon().getTipo() > pointer.getTipo()){
+       if(pointer.getLeftSon() != null && pointer.getLeftSon().getSegundos() > pointer.getSegundos()){
             pointer.setLeftSon(pointer.getLeftSon());
         }
-       else if(pointer.getRightSon() != null && pointer.getRightSon().getTipo() > pointer.getTipo()){
+       else if(pointer.getRightSon() != null && pointer.getRightSon().getSegundos() > pointer.getSegundos()){
            pointer.setRightSon(pointer.getRightSon());
        }
        if(pointer != nodo){
@@ -164,11 +135,6 @@ public class Bin_Heap {
            heapifyDown(pointer);
        }
     }
-    
-    
-//    public boolean validateLeftSons(Nodo_Documento nodo){
-//        return nodo.getRightSon() != null;
-//    }
     
     public void swapNodes(Nodo_Documento n1, Nodo_Documento n2){
         Nodo_Documento temp = n1;
@@ -187,7 +153,8 @@ public class Bin_Heap {
         }
             System.out.println("Nombre: " + pointer.getNombre());
             System.out.println("Tipo: " + pointer.getTipo());
-            System.out.println("Tamaño: " + pointer.getTamano());
+            System.out.println("Size: " + pointer.getSize());
+            System.out.println("Tiempo: " + pointer.getSegundos());
             System.out.println();
 
             printRecur(pointer.getLeftSon());
