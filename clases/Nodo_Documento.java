@@ -11,26 +11,20 @@ package clases;
 public class Nodo_Documento {
     
     private String Nombre;
-    private int tamano;
-    private int tipo;
+    private int size;
+    private String tipo;
+    private int segundos;
     private Nodo_Documento leftSon,rightSon;
-    //private Nodo_Documento subRoot;
+    
 
-    public Nodo_Documento(String Nombre, int tipo, int tamano) {
+    public Nodo_Documento(String Nombre, String tipo, int size, int segundos) {
         this.Nombre = Nombre;
         this.tipo = tipo;
-        this.tamano = tamano;
+        this.size = size;
+        this.segundos = segundos;
         this.leftSon = null;
         this.rightSon = null;
-        //this.subRoot = null;
-    }
-
-    public int getTamano() {
-        return tamano;
-    }
-
-    public void setTamano(int tamano) {
-        this.tamano = tamano;
+      
     }
 
     public Nodo_Documento getLeftSon() {
@@ -57,24 +51,29 @@ public class Nodo_Documento {
         this.Nombre = Nombre;
     }
 
-    public int getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-//    public Nodo_Documento getSubRoot() {
-//        return subRoot;
-//    }
-//
-//    public void setSubRoot(Nodo_Documento subRoot) {
-//        this.subRoot = subRoot;
-//    }
-//    
-    
-    
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int getSegundos() {
+        return segundos;
+    }
+
+    public void setSegundos(int segundos) {
+        this.segundos = segundos;
+    }    
     
     public boolean isLeaf(){
         return getRightSon() == null && getLeftSon() == null;

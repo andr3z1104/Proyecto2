@@ -40,6 +40,4 @@ public class Usuario {
         this.Documentos = Documentos;
     }
     
-    
-    
 }
