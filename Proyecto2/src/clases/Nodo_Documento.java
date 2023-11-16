@@ -10,27 +10,23 @@ package clases;
  */
 public class Nodo_Documento {
     
-    private String Nombre;
-    private int tamano;
-    private int tipo;
+//    private Documento doc;
+    private String nombre;
+    private String tipo;
+    private int size;
+    private int segundos;
+    private boolean prio;
     private Nodo_Documento leftSon,rightSon;
-    //private Nodo_Documento subRoot;
+    
 
-    public Nodo_Documento(String Nombre, int tipo, int tamano) {
-        this.Nombre = Nombre;
+    public Nodo_Documento(String nombre, String tipo, int size, int segundos, boolean prio) {
+        this.nombre = nombre;
         this.tipo = tipo;
-        this.tamano = tamano;
+        this.size = size;
+        this.segundos = segundos;
+        this.prio = prio;
         this.leftSon = null;
         this.rightSon = null;
-        //this.subRoot = null;
-    }
-
-    public int getTamano() {
-        return tamano;
-    }
-
-    public void setTamano(int tamano) {
-        this.tamano = tamano;
     }
 
     public Nodo_Documento getLeftSon() {
@@ -49,32 +45,53 @@ public class Nodo_Documento {
         this.rightSon = rightSon;
     }
 
+//    public Documento getDoc() {
+//        return doc;
+//    }
+//
+//    public void setDoc(Documento doc) {
+//        this.doc = doc;
+//    }
+
+    public int getSegundos() {
+        return segundos;
+    }
+
+    public void setSegundos(int segundos) {
+        this.segundos = segundos;
+    }    
+
+    public boolean isPrio() {
+        return prio;
+    }
+
+    public void setPrio(boolean prio) {
+        this.prio = prio;
+    }
+
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public int getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-//    public Nodo_Documento getSubRoot() {
-//        return subRoot;
-//    }
-//
-//    public void setSubRoot(Nodo_Documento subRoot) {
-//        this.subRoot = subRoot;
-//    }
-//    
-    
-    
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
     
     public boolean isLeaf(){
         return getRightSon() == null && getLeftSon() == null;

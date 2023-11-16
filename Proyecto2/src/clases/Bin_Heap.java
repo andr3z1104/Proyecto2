@@ -26,8 +26,9 @@ public class Bin_Heap {
         return getRoot() == null;
     }
     
-    public void insertNodo(String Nombre, int tipo, int tamano){
-        Nodo_Documento nodo = new Nodo_Documento(Nombre, tipo, tamano);
+    public void insertNodo(String nombre, String tipo, int size, boolean prio, Timer ti){
+        int segundos = ti.getSegundos();
+        Nodo_Documento nodo = new Nodo_Documento(nombre, tipo, size, segundos, prio);
         
         if(isEmpty()){
             setRoot(nodo);
@@ -35,7 +36,7 @@ public class Bin_Heap {
         else{
             Nodo_Documento pointer = getRoot();
             while(true){
-                if(tipo > pointer.getTipo()){
+                if(segundos > pointer.getSegundos()){
                     if(pointer.getLeftSon() == null){
                         pointer.setLeftSon(nodo);
                         heapifyUp(nodo);
@@ -101,7 +102,7 @@ public class Bin_Heap {
         
         Nodo_Documento subRoot = searchSubRoot(getRoot(), nodo);
         
-        if(nodo.getTipo() < subRoot.getTipo()){
+        if(nodo.getSegundos() < subRoot.getSegundos()){
             swapNodes(nodo, subRoot);
             heapifyUp(nodo);
         }
@@ -124,10 +125,10 @@ public class Bin_Heap {
     
     public void heapifyDown(Nodo_Documento nodo){
        Nodo_Documento pointer = nodo;
-       if(pointer.getLeftSon() != null && pointer.getLeftSon().getTipo() > pointer.getTipo()){
+       if(pointer.getLeftSon() != null && pointer.getLeftSon().getSegundos() > pointer.getSegundos()){
             pointer.setLeftSon(pointer.getLeftSon());
         }
-       else if(pointer.getRightSon() != null && pointer.getRightSon().getTipo() > pointer.getTipo()){
+       else if(pointer.getRightSon() != null && pointer.getRightSon().getSegundos() > pointer.getSegundos()){
            pointer.setRightSon(pointer.getRightSon());
        }
        if(pointer != nodo){
@@ -153,7 +154,8 @@ public class Bin_Heap {
         }
             System.out.println("Nombre: " + pointer.getNombre());
             System.out.println("Tipo: " + pointer.getTipo());
-            System.out.println("Tamaño: " + pointer.getTamano());
+            System.out.println("Size: " + pointer.getSize());
+            System.out.println("Tiempo: " + pointer.getSegundos());
             System.out.println();
 
             printRecur(pointer.getLeftSon());
