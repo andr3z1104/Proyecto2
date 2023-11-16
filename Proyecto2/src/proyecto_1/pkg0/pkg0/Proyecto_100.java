@@ -15,7 +15,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 public class Proyecto_100 {
 
     public static void main(String[] args) {
-        Principal p = new Principal();
+        CargarArchivo p = new CargarArchivo();
         p.setVisible(true);
         Bin_Heap heap = new Bin_Heap();
         Timer ti = new Timer();

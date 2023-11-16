@@ -10,13 +10,15 @@ import clases.csv;
  *
  * @author UsuarioDeWindows
  */
-public class Principal extends javax.swing.JFrame {
+public class CargarArchivo extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public CargarArchivo() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -28,41 +30,45 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        montar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        CargarArchivoBut = new javax.swing.JButton();
+        TituloProyecto = new javax.swing.JLabel();
+        Fondocargar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(582, 496));
         setMinimumSize(new java.awt.Dimension(582, 496));
-        setPreferredSize(new java.awt.Dimension(800, 800));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel2.setText("cARGAR ARCHIVO");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
-
-        montar.setText("Cargar archivo");
-        montar.addActionListener(new java.awt.event.ActionListener() {
+        CargarArchivoBut.setBackground(new java.awt.Color(0, 0, 0));
+        CargarArchivoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        CargarArchivoBut.setText("Cargar archivo");
+        CargarArchivoBut.setBorderPainted(false);
+        CargarArchivoBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                montarActionPerformed(evt);
+                CargarArchivoButActionPerformed(evt);
             }
         });
-        getContentPane().add(montar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, -1, -1));
+        getContentPane().add(CargarArchivoBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 180, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/_b5d49aee-e274-4004-9f43-54f369acf0d7.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 410));
+        TituloProyecto.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        TituloProyecto.setText("Proyecto2: Cola de Prioridad");
+        getContentPane().add(TituloProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
+
+        Fondocargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoCargarArchivo.png"))); // NOI18N
+        getContentPane().add(Fondocargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void montarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_montarActionPerformed
-        csv c = new csv();
-        c.leer(c.Seleccionar()).print();
+    private void CargarArchivoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarArchivoButActionPerformed
+        this.setVisible(false);
+        SistemaOperativo ventanasistema = new SistemaOperativo();
+        ventanasistema.setVisible(true);
+
+//        csv c = new csv();
+//        c.leer(c.Seleccionar()).print();
         
-    }//GEN-LAST:event_montarActionPerformed
+    }//GEN-LAST:event_CargarArchivoButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -81,27 +87,28 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CargarArchivo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CargarArchivo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CargarArchivo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CargarArchivo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new CargarArchivo().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton montar;
+    private javax.swing.JButton CargarArchivoBut;
+    private javax.swing.JLabel Fondocargar;
+    private javax.swing.JLabel TituloProyecto;
     // End of variables declaration//GEN-END:variables
 }
