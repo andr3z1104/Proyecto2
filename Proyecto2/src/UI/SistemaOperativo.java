@@ -87,11 +87,17 @@ public class SistemaOperativo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void VolverSistemaOperativoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverSistemaOperativoButActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here
+        this.setVisible(false);
+        CargarArchivo ventanacargar = new CargarArchivo();
+        ventanacargar.setVisible(true);
     }//GEN-LAST:event_VolverSistemaOperativoButActionPerformed
 
     private void ModificarUsuarioButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarUsuarioButActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        ModificarUsuario ventanamodificar = new ModificarUsuario();
+        ventanamodificar.setVisible(true);
     }//GEN-LAST:event_ModificarUsuarioButActionPerformed
 
     /**
