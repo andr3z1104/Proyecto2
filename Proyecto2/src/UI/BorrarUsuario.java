@@ -33,6 +33,7 @@ public class BorrarUsuario extends javax.swing.JFrame {
         VolverBorrarUsuarioBut = new javax.swing.JButton();
         BorrarLabel = new javax.swing.JLabel();
         BorrarText = new javax.swing.JTextField();
+        BorrarBut = new javax.swing.JButton();
         FondoBorrarUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,7 +60,15 @@ public class BorrarUsuario extends javax.swing.JFrame {
         BorrarLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BorrarLabel.setText("Borrar:");
         getContentPane().add(BorrarLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+
+        BorrarText.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         getContentPane().add(BorrarText, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 270, 30));
+
+        BorrarBut.setBackground(new java.awt.Color(0, 0, 0));
+        BorrarBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BorrarBut.setText("Aceptar");
+        BorrarBut.setBorderPainted(false);
+        getContentPane().add(BorrarBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, -1, -1));
 
         FondoBorrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoBorrarUsuario.png"))); // NOI18N
         getContentPane().add(FondoBorrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 410));
@@ -110,6 +119,7 @@ public class BorrarUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BorrarBut;
     private javax.swing.JLabel BorrarLabel;
     private javax.swing.JTextField BorrarText;
     private javax.swing.JLabel FondoBorrarUsuario;

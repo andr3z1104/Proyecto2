@@ -28,13 +28,17 @@ public class AgregarUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         NombreText = new javax.swing.JTextField();
         NombreLabel = new javax.swing.JLabel();
         TipoLabel = new javax.swing.JLabel();
-        TIpoText = new javax.swing.JTextField();
         VolverAgregarUsuarioBut = new javax.swing.JButton();
+        AgregarBut = new javax.swing.JButton();
+        AltoBut = new javax.swing.JRadioButton();
+        MedioBut = new javax.swing.JRadioButton();
+        BajoBut = new javax.swing.JRadioButton();
         FondoAgregarUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,13 +67,6 @@ public class AgregarUsuario extends javax.swing.JFrame {
         TipoLabel.setText("Tipo:");
         getContentPane().add(TipoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
-        TIpoText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TIpoTextActionPerformed(evt);
-            }
-        });
-        getContentPane().add(TIpoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 310, 30));
-
         VolverAgregarUsuarioBut.setBackground(new java.awt.Color(0, 0, 0));
         VolverAgregarUsuarioBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         VolverAgregarUsuarioBut.setText("Volver");
@@ -81,6 +78,27 @@ public class AgregarUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(VolverAgregarUsuarioBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
 
+        AgregarBut.setBackground(new java.awt.Color(0, 0, 0));
+        AgregarBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        AgregarBut.setText("Aceptar");
+        AgregarBut.setBorderPainted(false);
+        getContentPane().add(AgregarBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, -1));
+
+        buttonGroup1.add(AltoBut);
+        AltoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        AltoBut.setText("Prioridad alta");
+        getContentPane().add(AltoBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, -1, -1));
+
+        buttonGroup1.add(MedioBut);
+        MedioBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        MedioBut.setText("Prioridad media");
+        getContentPane().add(MedioBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
+
+        buttonGroup1.add(BajoBut);
+        BajoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BajoBut.setText("Prioridad baja");
+        getContentPane().add(BajoBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
+
         FondoAgregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoAgregarUsuario.png"))); // NOI18N
         getContentPane().add(FondoAgregarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 410));
 
@@ -90,10 +108,6 @@ public class AgregarUsuario extends javax.swing.JFrame {
     private void NombreTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NombreTextActionPerformed
-
-    private void TIpoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TIpoTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TIpoTextActionPerformed
 
     private void VolverAgregarUsuarioButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverAgregarUsuarioButActionPerformed
         // TODO add your handling code here:
@@ -139,12 +153,16 @@ public class AgregarUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AgregarBut;
+    private javax.swing.JRadioButton AltoBut;
+    private javax.swing.JRadioButton BajoBut;
     private javax.swing.JLabel FondoAgregarUsuario;
+    private javax.swing.JRadioButton MedioBut;
     private javax.swing.JLabel NombreLabel;
     private javax.swing.JTextField NombreText;
-    private javax.swing.JTextField TIpoText;
     private javax.swing.JLabel TipoLabel;
     private javax.swing.JButton VolverAgregarUsuarioBut;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
