@@ -22,6 +22,8 @@ public class Proyecto_100 {
         HashTable h = new HashTable(10);
         ti.run();
         ti.setSegundos(50);
+        Usuario u = new Usuario("Nicola",1);
+        Usuario w = new Usuario("Andres",1);
         
 //        TimerUI tim = new TimerUI();
 //        tim.setVisible(true);
@@ -32,15 +34,15 @@ public class Proyecto_100 {
 //        Documento doc4 = new Documento("Doc4", "PPTX", 100);
 //        Documento doc5 = new Documento("Doc5", "Win", 100);
         
-        heap.insertNodo("Doc1", "PDF", 100, false, ti);
+        heap.insertNodo("Doc1", "PDF", 100, true, ti, u);
         ti.setSegundos(60);
-        heap.insertNodo("Doc2", "Word", 100, false, ti);
+        heap.insertNodo("Doc2", "Word", 100, false, ti, w);
         ti.setSegundos(70);
-        heap.insertNodo("Doc3", "Pub", 100, false, ti);
+        heap.insertNodo("Doc3", "Pub", 100, false, ti,u);
         ti.setSegundos(80);
-        heap.insertNodo("Doc4", "PPTX", 100, false, ti);
+        heap.insertNodo("Doc4", "PPTX", 100, false, ti,w);
         ti.setSegundos(90);
-        heap.insertNodo("Doc5", "Win", 100, false, ti);
+        heap.insertNodo("Doc5", "Win", 100, false, ti,u);
      
         heap.print();
         System.out.println("///////////");
@@ -50,12 +52,11 @@ public class Proyecto_100 {
         
         heap.print();
         Lista d = new Lista();
-        Usuario u = new Usuario("Nicola",1);
-        Usuario w = new Usuario("Andres",1);
+        d.insertBegin(u);
+        d.insertBegin(w);
         h.insert(u);
         h.insert(w);
         h.print();
-        
         
         
         

@@ -26,9 +26,33 @@ public class Bin_Heap {
         return getRoot() == null;
     }
     
-    public void insertNodo(String nombre, String tipo, int size, boolean prio, Timer ti){
+    public Nodo_Documento checkPrio(Nodo_Documento nodo, Usuario usuario){
+        if(nodo.isPrio()){
+            switch (usuario.getTipo()) {
+                case 1 -> {
+                    nodo.setSegundos(nodo.getSegundos()/10);
+                    return nodo;
+                }
+                case 2 -> {
+                    nodo.setSegundos(nodo.getSegundos()/5);
+                    return nodo;
+                }
+                default -> {
+                    nodo.setSegundos(nodo.getSegundos()/2);
+                    return nodo;
+                }
+            }
+        }
+        else{
+            return nodo;
+        }
+    }
+    
+    public void insertNodo(String nombre, String tipo, int size, boolean prio, Timer ti, Usuario usuario){
         int segundos = ti.getSegundos();
         Nodo_Documento nodo = new Nodo_Documento(nombre, tipo, size, segundos, prio);
+        
+        checkPrio(nodo, usuario);
         
         if(isEmpty()){
             setRoot(nodo);

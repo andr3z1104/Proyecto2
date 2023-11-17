@@ -42,11 +42,13 @@ public class ModificarUsuario extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 147, -1, -1));
 
         TituloModificarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        TituloModificarUsuario.setForeground(new java.awt.Color(255, 255, 255));
         TituloModificarUsuario.setText("Que desea hacer");
         getContentPane().add(TituloModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
         VolverModificarUsuarioBut.setBackground(new java.awt.Color(0, 0, 0));
         VolverModificarUsuarioBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        VolverModificarUsuarioBut.setForeground(new java.awt.Color(255, 255, 255));
         VolverModificarUsuarioBut.setText("Volver");
         VolverModificarUsuarioBut.setBorderPainted(false);
         VolverModificarUsuarioBut.addActionListener(new java.awt.event.ActionListener() {
@@ -58,6 +60,7 @@ public class ModificarUsuario extends javax.swing.JFrame {
 
         AgregarUsuarioBut.setBackground(new java.awt.Color(0, 0, 0));
         AgregarUsuarioBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        AgregarUsuarioBut.setForeground(new java.awt.Color(255, 255, 255));
         AgregarUsuarioBut.setText("Agregar Usuario");
         AgregarUsuarioBut.setBorderPainted(false);
         AgregarUsuarioBut.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +72,7 @@ public class ModificarUsuario extends javax.swing.JFrame {
 
         BorrarUsuarioBut.setBackground(new java.awt.Color(0, 0, 0));
         BorrarUsuarioBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BorrarUsuarioBut.setForeground(new java.awt.Color(255, 255, 255));
         BorrarUsuarioBut.setText("Borrar Usuario");
         BorrarUsuarioBut.setBorderPainted(false);
         BorrarUsuarioBut.addActionListener(new java.awt.event.ActionListener() {

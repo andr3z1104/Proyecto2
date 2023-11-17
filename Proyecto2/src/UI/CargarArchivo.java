@@ -41,6 +41,7 @@ public class CargarArchivo extends javax.swing.JFrame {
 
         CargarArchivoBut.setBackground(new java.awt.Color(0, 0, 0));
         CargarArchivoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        CargarArchivoBut.setForeground(new java.awt.Color(255, 255, 255));
         CargarArchivoBut.setText("Cargar archivo");
         CargarArchivoBut.setBorderPainted(false);
         CargarArchivoBut.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +52,7 @@ public class CargarArchivo extends javax.swing.JFrame {
         getContentPane().add(CargarArchivoBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 180, 80));
 
         TituloProyecto.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        TituloProyecto.setForeground(new java.awt.Color(255, 255, 255));
         TituloProyecto.setText("Proyecto2: Cola de Prioridad");
         getContentPane().add(TituloProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 

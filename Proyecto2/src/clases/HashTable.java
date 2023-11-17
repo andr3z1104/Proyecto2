@@ -43,12 +43,6 @@ public class HashTable {
         int hashCode = usuario.hashCode();
         return Math.abs(hashCode) % tabla.length;
     }
-//    
-//    public void insert(Usuario Usuario){
-//        String usuario = Usuario.getNombre();
-//        int index = hashFunction(usuario);
-//        tabla[index].insertAtIndex(usuario,index);
-//    }
     
      public void insert(Usuario Usuario){
         int usuario = Usuario.getID();

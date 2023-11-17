@@ -43,11 +43,13 @@ public class SistemaOperativo extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 116, -1, -1));
 
         TituloSistemaOperativo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        TituloSistemaOperativo.setForeground(new java.awt.Color(255, 255, 255));
         TituloSistemaOperativo.setText("Que desea hacer");
         getContentPane().add(TituloSistemaOperativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
 
         VolverSistemaOperativoBut.setBackground(new java.awt.Color(0, 0, 0));
         VolverSistemaOperativoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        VolverSistemaOperativoBut.setForeground(new java.awt.Color(255, 255, 255));
         VolverSistemaOperativoBut.setText("Volver");
         VolverSistemaOperativoBut.setBorderPainted(false);
         VolverSistemaOperativoBut.addActionListener(new java.awt.event.ActionListener() {
@@ -59,6 +61,7 @@ public class SistemaOperativo extends javax.swing.JFrame {
 
         ModificarUsuarioBut.setBackground(new java.awt.Color(0, 0, 0));
         ModificarUsuarioBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        ModificarUsuarioBut.setForeground(new java.awt.Color(255, 255, 255));
         ModificarUsuarioBut.setText("Modificar usuario");
         ModificarUsuarioBut.setBorderPainted(false);
         ModificarUsuarioBut.addActionListener(new java.awt.event.ActionListener() {
@@ -70,12 +73,14 @@ public class SistemaOperativo extends javax.swing.JFrame {
 
         ModificarDocumentosBut.setBackground(new java.awt.Color(0, 0, 0));
         ModificarDocumentosBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        ModificarDocumentosBut.setForeground(new java.awt.Color(255, 255, 255));
         ModificarDocumentosBut.setText("Modificar documento");
         ModificarDocumentosBut.setBorderPainted(false);
         getContentPane().add(ModificarDocumentosBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 242, 240, 60));
 
         ImpresoraBut.setBackground(new java.awt.Color(0, 0, 0));
         ImpresoraBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        ImpresoraBut.setForeground(new java.awt.Color(255, 255, 255));
         ImpresoraBut.setText("Impresora");
         ImpresoraBut.setBorderPainted(false);
         getContentPane().add(ImpresoraBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 240, 60));
