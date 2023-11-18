@@ -76,6 +76,11 @@ public class SistemaOperativo extends javax.swing.JFrame {
         ModificarDocumentosBut.setForeground(new java.awt.Color(255, 255, 255));
         ModificarDocumentosBut.setText("Modificar documento");
         ModificarDocumentosBut.setBorderPainted(false);
+        ModificarDocumentosBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarDocumentosButActionPerformed(evt);
+            }
+        });
         getContentPane().add(ModificarDocumentosBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 242, 240, 60));
 
         ImpresoraBut.setBackground(new java.awt.Color(0, 0, 0));
@@ -104,6 +109,13 @@ public class SistemaOperativo extends javax.swing.JFrame {
         ModificarUsuario ventanamodificar = new ModificarUsuario();
         ventanamodificar.setVisible(true);
     }//GEN-LAST:event_ModificarUsuarioButActionPerformed
+
+    private void ModificarDocumentosButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarDocumentosButActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        ModificarDocumento ventanamodificar = new ModificarDocumento();
+        ventanamodificar.setVisible(true);
+    }//GEN-LAST:event_ModificarDocumentosButActionPerformed
 
     /**
      * @param args the command line arguments

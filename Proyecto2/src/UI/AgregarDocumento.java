@@ -8,12 +8,12 @@ package UI;
  *
  * @author ACER
  */
-public class AgregarUsuario extends javax.swing.JFrame {
+public class AgregarDocumento extends javax.swing.JFrame {
 
     /**
      * Creates new form AgregarUsuario
      */
-    public AgregarUsuario() {
+    public AgregarDocumento() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -30,16 +30,14 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        TituloAgregarDocumento = new javax.swing.JLabel();
         NombreText = new javax.swing.JTextField();
         NombreLabel = new javax.swing.JLabel();
         TipoLabel = new javax.swing.JLabel();
-        VolverAgregarUsuarioBut = new javax.swing.JButton();
+        VolverAgregarDocumentoBut = new javax.swing.JButton();
         AgregarBut = new javax.swing.JButton();
-        AltoBut = new javax.swing.JRadioButton();
-        MedioBut = new javax.swing.JRadioButton();
-        BajoBut = new javax.swing.JRadioButton();
-        FondoAgregarUsuario = new javax.swing.JLabel();
+        TipoText = new javax.swing.JTextField();
+        FondoAgregarDocumento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -47,10 +45,10 @@ public class AgregarUsuario extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 132, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Agregar Usuario");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
+        TituloAgregarDocumento.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        TituloAgregarDocumento.setForeground(new java.awt.Color(255, 255, 255));
+        TituloAgregarDocumento.setText("Agregar Documento");
+        getContentPane().add(TituloAgregarDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
 
         NombreText.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         NombreText.addActionListener(new java.awt.event.ActionListener() {
@@ -70,50 +68,35 @@ public class AgregarUsuario extends javax.swing.JFrame {
         TipoLabel.setText("Tipo:");
         getContentPane().add(TipoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
-        VolverAgregarUsuarioBut.setBackground(new java.awt.Color(0, 0, 0));
-        VolverAgregarUsuarioBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        VolverAgregarUsuarioBut.setForeground(new java.awt.Color(255, 255, 255));
-        VolverAgregarUsuarioBut.setText("Volver");
-        VolverAgregarUsuarioBut.setBorderPainted(false);
-        VolverAgregarUsuarioBut.addActionListener(new java.awt.event.ActionListener() {
+        VolverAgregarDocumentoBut.setBackground(new java.awt.Color(0, 0, 0));
+        VolverAgregarDocumentoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        VolverAgregarDocumentoBut.setForeground(new java.awt.Color(255, 255, 255));
+        VolverAgregarDocumentoBut.setText("Volver");
+        VolverAgregarDocumentoBut.setBorderPainted(false);
+        VolverAgregarDocumentoBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VolverAgregarUsuarioButActionPerformed(evt);
+                VolverAgregarDocumentoButActionPerformed(evt);
             }
         });
-        getContentPane().add(VolverAgregarUsuarioBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+        getContentPane().add(VolverAgregarDocumentoBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
 
         AgregarBut.setBackground(new java.awt.Color(0, 0, 0));
         AgregarBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         AgregarBut.setForeground(new java.awt.Color(255, 255, 255));
         AgregarBut.setText("Aceptar");
         AgregarBut.setBorderPainted(false);
-        getContentPane().add(AgregarBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, -1, -1));
-
-        buttonGroup1.add(AltoBut);
-        AltoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        AltoBut.setForeground(new java.awt.Color(255, 255, 255));
-        AltoBut.setText("Prioridad alta");
-        AltoBut.addActionListener(new java.awt.event.ActionListener() {
+        AgregarBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AltoButActionPerformed(evt);
+                AgregarButActionPerformed(evt);
             }
         });
-        getContentPane().add(AltoBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, -1, -1));
+        getContentPane().add(AgregarBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, -1));
 
-        buttonGroup1.add(MedioBut);
-        MedioBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        MedioBut.setForeground(new java.awt.Color(255, 255, 255));
-        MedioBut.setText("Prioridad media");
-        getContentPane().add(MedioBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
+        TipoText.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        getContentPane().add(TipoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 310, 30));
 
-        buttonGroup1.add(BajoBut);
-        BajoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BajoBut.setForeground(new java.awt.Color(255, 255, 255));
-        BajoBut.setText("Prioridad baja");
-        getContentPane().add(BajoBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
-
-        FondoAgregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoAgregarUsuario.png"))); // NOI18N
-        getContentPane().add(FondoAgregarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 410));
+        FondoAgregarDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoAgregarDocumento.png"))); // NOI18N
+        getContentPane().add(FondoAgregarDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -122,17 +105,17 @@ public class AgregarUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NombreTextActionPerformed
 
-    private void VolverAgregarUsuarioButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverAgregarUsuarioButActionPerformed
+    private void VolverAgregarDocumentoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverAgregarDocumentoButActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        ModificarUsuario ventana = new ModificarUsuario();
+        ModificarDocumento ventana = new ModificarDocumento();
         ventana.setVisible(true);
         
-    }//GEN-LAST:event_VolverAgregarUsuarioButActionPerformed
+    }//GEN-LAST:event_VolverAgregarDocumentoButActionPerformed
 
-    private void AltoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AltoButActionPerformed
+    private void AgregarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarButActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AltoButActionPerformed
+    }//GEN-LAST:event_AgregarButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,16 +154,14 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarBut;
-    private javax.swing.JRadioButton AltoBut;
-    private javax.swing.JRadioButton BajoBut;
-    private javax.swing.JLabel FondoAgregarUsuario;
-    private javax.swing.JRadioButton MedioBut;
+    private javax.swing.JLabel FondoAgregarDocumento;
     private javax.swing.JLabel NombreLabel;
     private javax.swing.JTextField NombreText;
     private javax.swing.JLabel TipoLabel;
-    private javax.swing.JButton VolverAgregarUsuarioBut;
+    private javax.swing.JTextField TipoText;
+    private javax.swing.JLabel TituloAgregarDocumento;
+    private javax.swing.JButton VolverAgregarDocumentoBut;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
