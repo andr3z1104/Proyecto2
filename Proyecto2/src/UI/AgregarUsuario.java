@@ -91,7 +91,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
         buttonGroup1.add(AltoBut);
         AltoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        AltoBut.setForeground(new java.awt.Color(255, 255, 255));
+        AltoBut.setForeground(new java.awt.Color(0, 0, 0));
         AltoBut.setText("Prioridad alta");
         AltoBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,13 +102,13 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
         buttonGroup1.add(MedioBut);
         MedioBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        MedioBut.setForeground(new java.awt.Color(255, 255, 255));
+        MedioBut.setForeground(new java.awt.Color(0, 0, 0));
         MedioBut.setText("Prioridad media");
         getContentPane().add(MedioBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
 
         buttonGroup1.add(BajoBut);
         BajoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BajoBut.setForeground(new java.awt.Color(255, 255, 255));
+        BajoBut.setForeground(new java.awt.Color(0, 0, 0));
         BajoBut.setText("Prioridad baja");
         getContentPane().add(BajoBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
 

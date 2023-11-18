@@ -5,6 +5,9 @@
 package UI;
 
 import clases.csv;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -63,9 +66,22 @@ public class CargarArchivo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CargarArchivoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarArchivoButActionPerformed
-        this.setVisible(false);
-        SistemaOperativo ventanasistema = new SistemaOperativo();
-        ventanasistema.setVisible(true);
+        JFileChooser jFileChooser = new JFileChooser();
+        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("CSV","csv");
+        jFileChooser.setFileFilter(filtrado);
+        
+        int respuesta = jFileChooser.showOpenDialog(this);
+        
+        if (respuesta==JFileChooser.APPROVE_OPTION) {
+            String Ruta = jFileChooser.getSelectedFile().getPath();
+            JOptionPane.showMessageDialog(null, "El archivo se leyó ");
+            this.setVisible(false);
+            SistemaOperativo ventana = new SistemaOperativo();
+            ventana.setVisible(true);
+        }
+//        this.setVisible(false);
+//        SistemaOperativo ventanasistema = new SistemaOperativo();
+//        ventanasistema.setVisible(true);
 
 //        csv c = new csv();
 //        c.leer(c.Seleccionar()).print();

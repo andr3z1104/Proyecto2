@@ -37,6 +37,8 @@ public class AgregarDocumento extends javax.swing.JFrame {
         VolverAgregarDocumentoBut = new javax.swing.JButton();
         AgregarBut = new javax.swing.JButton();
         TipoText = new javax.swing.JTextField();
+        TamañoLabel = new javax.swing.JLabel();
+        TamañoText = new javax.swing.JTextField();
         FondoAgregarDocumento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,7 +68,7 @@ public class AgregarDocumento extends javax.swing.JFrame {
         TipoLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         TipoLabel.setForeground(new java.awt.Color(255, 255, 255));
         TipoLabel.setText("Tipo:");
-        getContentPane().add(TipoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+        getContentPane().add(TipoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
 
         VolverAgregarDocumentoBut.setBackground(new java.awt.Color(0, 0, 0));
         VolverAgregarDocumentoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -93,7 +95,13 @@ public class AgregarDocumento extends javax.swing.JFrame {
         getContentPane().add(AgregarBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, -1));
 
         TipoText.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        getContentPane().add(TipoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 310, 30));
+        getContentPane().add(TipoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 310, 30));
+
+        TamañoLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        TamañoLabel.setForeground(new java.awt.Color(255, 255, 255));
+        TamañoLabel.setText("Tamaño:");
+        getContentPane().add(TamañoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
+        getContentPane().add(TamañoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 310, 30));
 
         FondoAgregarDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoAgregarDocumento.png"))); // NOI18N
         getContentPane().add(FondoAgregarDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 410));
@@ -157,6 +165,8 @@ public class AgregarDocumento extends javax.swing.JFrame {
     private javax.swing.JLabel FondoAgregarDocumento;
     private javax.swing.JLabel NombreLabel;
     private javax.swing.JTextField NombreText;
+    private javax.swing.JLabel TamañoLabel;
+    private javax.swing.JTextField TamañoText;
     private javax.swing.JLabel TipoLabel;
     private javax.swing.JTextField TipoText;
     private javax.swing.JLabel TituloAgregarDocumento;

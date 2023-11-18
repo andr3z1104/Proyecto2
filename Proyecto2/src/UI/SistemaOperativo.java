@@ -88,6 +88,11 @@ public class SistemaOperativo extends javax.swing.JFrame {
         ImpresoraBut.setForeground(new java.awt.Color(255, 255, 255));
         ImpresoraBut.setText("Impresora");
         ImpresoraBut.setBorderPainted(false);
+        ImpresoraBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImpresoraButActionPerformed(evt);
+            }
+        });
         getContentPane().add(ImpresoraBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 240, 60));
 
         FondoSIstemaOperativo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoSistemaOperativo.png"))); // NOI18N
@@ -116,6 +121,13 @@ public class SistemaOperativo extends javax.swing.JFrame {
         ModificarDocumento ventanamodificar = new ModificarDocumento();
         ventanamodificar.setVisible(true);
     }//GEN-LAST:event_ModificarDocumentosButActionPerformed
+
+    private void ImpresoraButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImpresoraButActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        Impresora ventana = new Impresora();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_ImpresoraButActionPerformed
 
     /**
      * @param args the command line arguments
