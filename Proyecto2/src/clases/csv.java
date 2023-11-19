@@ -6,6 +6,7 @@ package clases;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -54,5 +55,22 @@ public class csv {
           }
             return users;
         }
+        
+        public void modificarCSV(String path, String data){
+        try {
+            FileWriter output = new FileWriter(path);
+            output.write(data); 
+            output.close(); 
+        } 
+  
+        catch (Exception e) { 
+            e.getStackTrace(); 
+        } 
+    }
+        
+       public String agregarUser(Lista g, String s, String p){
+           Usuario us = new Usuario();
+       }
+    
         
 }

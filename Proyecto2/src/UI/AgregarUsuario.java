@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package UI;
+import clases.*;
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,6 +14,10 @@ package UI;
  */
 public class AgregarUsuario extends javax.swing.JFrame {
 
+    
+    
+    private String path;
+    
     /**
      * Creates new form AgregarUsuario
      */
@@ -87,6 +95,11 @@ public class AgregarUsuario extends javax.swing.JFrame {
         AgregarBut.setForeground(new java.awt.Color(255, 255, 255));
         AgregarBut.setText("Aceptar");
         AgregarBut.setBorderPainted(false);
+        AgregarBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarButActionPerformed(evt);
+            }
+        });
         getContentPane().add(AgregarBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, -1, -1));
 
         buttonGroup1.add(AltoBut);
@@ -133,6 +146,34 @@ public class AgregarUsuario extends javax.swing.JFrame {
     private void AltoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AltoButActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AltoButActionPerformed
+
+    private void AgregarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarButActionPerformed
+          csv C2 = new csv();
+        if (NombreText.getText().equalsIgnoreCase("") || C2.leer(getPath()).equals(NombreText.getText())){
+            if (NombreText.getText().equalsIgnoreCase("")){
+           JOptionPane.showMessageDialog(null, "Por favor ingrese un nombbre valido");
+           }
+           if (C2.leer(getPath()).equals(NombreText.getText())){
+               JOptionPane.showMessageDialog(null, "El usuario ya existe, solo puede agregar nuevos usuarios");
+               NombreText.setText("");
+           }
+        }else{
+        String nombre=NombreText.getText();
+        String choice = null;
+            for (Enumeration buttons = buttonGroup1.getElements(); buttons.hasMoreElements();) {
+                AbstractButton button = (AbstractButton) buttons.nextElement();
+                if (button.isSelected()) {
+                    choice = button.getText();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Por favor indique la prioridad");
+                }
+            }
+       csv C = new csv();
+       C.modificarCSV(getPath(), C.agregarUser(C2.leer(getPath()), nombre, choice));
+       JOptionPane.showMessageDialog(null, "El usuario fue añadido exitosamente");
+        }
+    }//GEN-LAST:event_AgregarButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,4 +224,20 @@ public class AgregarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+        /**
+     * @return the path
+     */
+    public String getPath() {
+        return path;
+    }
+
+    /**
+     * @param path the path to set
+     */
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+
 }
