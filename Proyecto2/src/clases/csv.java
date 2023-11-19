@@ -7,6 +7,7 @@ package clases;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -56,20 +57,42 @@ public class csv {
             return users;
         }
         
-        public void modificarCSV(String path, String data){
+        public void modificarCSV(String path, String data,String nombre, String tipo){
         try {
-            FileWriter output = new FileWriter(path);
+            PrintWriter output = new PrintWriter(path);
+            data=data+nombre+","+tipo;
             output.write(data); 
             output.close(); 
         } 
   
         catch (Exception e) { 
-            e.getStackTrace(); 
+            e.getStackTrace();
+            JOptionPane.showMessageDialog(null, e);
         } 
     }
         
-       public String agregarUser(Lista g, String s, String p){
-           Usuario us = new Usuario();
+       public String ObtenerStr(String path){
+           String s="";
+           BufferedReader br = null;
+           
+           try {
+           br =new BufferedReader(new FileReader(path));
+           
+           String line = br.readLine();
+               
+           while (line!=null) {
+              
+              s=s+line+"\n";
+              line = br.readLine();
+           }
+
+           br.close();
+           } catch (Exception e) {
+               e.getStackTrace();
+              JOptionPane.showMessageDialog(null, "caca1");
+          }
+           System.out.println(s);
+        return s;   
        }
     
         

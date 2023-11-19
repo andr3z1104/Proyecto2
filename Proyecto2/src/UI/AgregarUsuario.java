@@ -104,8 +104,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
         buttonGroup1.add(AltoBut);
         AltoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        AltoBut.setForeground(new java.awt.Color(0, 0, 0));
-        AltoBut.setText("Prioridad alta");
+        AltoBut.setText("prioridad_alta");
         AltoBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AltoButActionPerformed(evt);
@@ -115,14 +114,17 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
         buttonGroup1.add(MedioBut);
         MedioBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        MedioBut.setForeground(new java.awt.Color(0, 0, 0));
-        MedioBut.setText("Prioridad media");
+        MedioBut.setText("prioridad_media");
+        MedioBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MedioButActionPerformed(evt);
+            }
+        });
         getContentPane().add(MedioBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
 
         buttonGroup1.add(BajoBut);
         BajoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        BajoBut.setForeground(new java.awt.Color(0, 0, 0));
-        BajoBut.setText("Prioridad baja");
+        BajoBut.setText("prioridad_baja");
         getContentPane().add(BajoBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
 
         FondoAgregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoAgregarUsuario.png"))); // NOI18N
@@ -149,11 +151,11 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
     private void AgregarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarButActionPerformed
           csv C2 = new csv();
-        if (NombreText.getText().equalsIgnoreCase("") || C2.leer(getPath()).equals(NombreText.getText())){
+        if (NombreText.getText().equalsIgnoreCase("") || C2.ObtenerStr(getPath()).equals(NombreText.getText())){
             if (NombreText.getText().equalsIgnoreCase("")){
            JOptionPane.showMessageDialog(null, "Por favor ingrese un nombbre valido");
            }
-           if (C2.leer(getPath()).equals(NombreText.getText())){
+           if (C2.ObtenerStr(getPath()).equals(NombreText.getText())){
                JOptionPane.showMessageDialog(null, "El usuario ya existe, solo puede agregar nuevos usuarios");
                NombreText.setText("");
            }
@@ -164,16 +166,22 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 AbstractButton button = (AbstractButton) buttons.nextElement();
                 if (button.isSelected()) {
                     choice = button.getText();
+                    break;
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "Por favor indique la prioridad");
+                    break;
                 }
             }
        csv C = new csv();
-       C.modificarCSV(getPath(), C.agregarUser(C2.leer(getPath()), nombre, choice));
+       C.modificarCSV(getPath(),C2.ObtenerStr(getPath()), nombre,choice);
        JOptionPane.showMessageDialog(null, "El usuario fue añadido exitosamente");
         }
     }//GEN-LAST:event_AgregarButActionPerformed
+
+    private void MedioButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MedioButActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MedioButActionPerformed
 
     /**
      * @param args the command line arguments

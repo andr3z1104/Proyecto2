@@ -9,7 +9,7 @@ package UI;
  * @author ACER
  */
 public class ModificarUsuario extends javax.swing.JFrame {
-
+    private String path;
     /**
      * Creates new form ModificarUsuario
      */
@@ -99,6 +99,7 @@ public class ModificarUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         AgregarUsuario ventanaagregaru = new AgregarUsuario();
+        ventanaagregaru.setPath(getPath());
         ventanaagregaru.setVisible(true);
     }//GEN-LAST:event_AgregarUsuarioButActionPerformed
 
@@ -153,4 +154,18 @@ public class ModificarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton VolverModificarUsuarioBut;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the path
+     */
+    public String getPath() {
+        return path;
+    }
+
+    /**
+     * @param path the path to set
+     */
+    public void setPath(String path) {
+        this.path = path;
+    }
 }

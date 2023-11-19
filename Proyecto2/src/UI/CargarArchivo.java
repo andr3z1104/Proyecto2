@@ -77,6 +77,7 @@ public class CargarArchivo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El archivo se leyó ");
             this.setVisible(false);
             SistemaOperativo ventana = new SistemaOperativo();
+            ventana.setPath(Ruta);
             ventana.setVisible(true);
         }
 //        this.setVisible(false);

@@ -28,20 +28,30 @@ public class Bin_Heap {
     
     public Nodo_Documento checkPrio(Nodo_Documento nodo, Usuario usuario){
         if(nodo.isPrio()){
-            switch (usuario.getTipo()) {
-                case 1 -> {
-                    nodo.setSegundos(nodo.getSegundos()/10);
-                    return nodo;
-                }
-                case 2 -> {
-                    nodo.setSegundos(nodo.getSegundos()/5);
-                    return nodo;
-                }
-                default -> {
-                    nodo.setSegundos(nodo.getSegundos()/2);
-                    return nodo;
-                }
+            if(usuario.getTipo()==1){
+                nodo.setSegundos(nodo.getSegundos()/10);
+                return nodo;
+            }else if (usuario.getTipo()==2){
+                nodo.setSegundos(nodo.getSegundos()/5);
+                return nodo;
+            }else{
+                nodo.setSegundos(nodo.getSegundos()/2);
+                return nodo;
             }
+//            switch (usuario.getTipo()) {
+//                case 1 -> {
+//                    nodo.setSegundos(nodo.getSegundos()/10);
+//                    return nodo;
+//                }
+//                case 2 -> {
+//                    nodo.setSegundos(nodo.getSegundos()/5);
+//                    return nodo;
+//                }
+//                default -> {
+//                    nodo.setSegundos(nodo.getSegundos()/2);
+//                    return nodo;
+//                }
+//            }
         }
         else{
             return nodo;

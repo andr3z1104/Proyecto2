@@ -9,7 +9,7 @@ package UI;
  * @author ACER
  */
 public class SistemaOperativo extends javax.swing.JFrame {
-
+    private String path;
     /**
      * Creates new form SistemaOperativo
      */
@@ -112,6 +112,7 @@ public class SistemaOperativo extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         ModificarUsuario ventanamodificar = new ModificarUsuario();
+        ventanamodificar.setPath(getPath());
         ventanamodificar.setVisible(true);
     }//GEN-LAST:event_ModificarUsuarioButActionPerformed
 
@@ -173,4 +174,18 @@ public class SistemaOperativo extends javax.swing.JFrame {
     private javax.swing.JButton VolverSistemaOperativoBut;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the path
+     */
+    public String getPath() {
+        return path;
+    }
+
+    /**
+     * @param path the path to set
+     */
+    public void setPath(String path) {
+        this.path = path;
+    }
 }

@@ -15,7 +15,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 public class Proyecto_100 {
 
     public static void main(String[] args) {
-        CargarArchivo p = new CargarArchivo();
+       CargarArchivo p = new CargarArchivo();
         p.setVisible(true);
         Bin_Heap heap = new Bin_Heap();
         Timer ti = new Timer();
@@ -62,34 +62,34 @@ public class Proyecto_100 {
         
         
         
-//        JFrame frame = new JFrame("Ejemplo arbol");
-//        frame.setSize(500,500);
-//        
-//        DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("TOP");
-//        
-//        DefaultMutableTreeNode A = new DefaultMutableTreeNode("Usuario1");
-//        DefaultMutableTreeNode B = new DefaultMutableTreeNode("Usuario2");
-//        
-//        DefaultMutableTreeNode A1 = new DefaultMutableTreeNode("Doc1");
-//        DefaultMutableTreeNode A2 = new DefaultMutableTreeNode("Doc2");
-//        
-//        DefaultMutableTreeNode B1 = new DefaultMutableTreeNode("Doc3");
-//        DefaultMutableTreeNode B2 = new DefaultMutableTreeNode("Doc4");
-//        DefaultMutableTreeNode B3 = new DefaultMutableTreeNode("Doc5");
-//        
-//        A.add(A1);
-//        A.add(A2);
-//        
-//        B.add(B1);
-//        B.add(B2);
-//        B.add(B3);
-//        
-//        rootNode.add(A);
-//        rootNode.add(B);
-//        
-//        JTree tree = new JTree(rootNode);
-//        frame.add(tree);
-//        frame.setVisible(true);
+        JFrame frame = new JFrame("Ejemplo arbol");
+        frame.setSize(500,500);
+        
+        DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("TOP");
+        
+        DefaultMutableTreeNode A = new DefaultMutableTreeNode("Usuario1");
+        DefaultMutableTreeNode B = new DefaultMutableTreeNode("Usuario2");
+        
+        DefaultMutableTreeNode A1 = new DefaultMutableTreeNode("Doc1");
+        DefaultMutableTreeNode A2 = new DefaultMutableTreeNode("Doc2");
+        
+        DefaultMutableTreeNode B1 = new DefaultMutableTreeNode("Doc3");
+        DefaultMutableTreeNode B2 = new DefaultMutableTreeNode("Doc4");
+        DefaultMutableTreeNode B3 = new DefaultMutableTreeNode("Doc5");
+        
+        A.add(A1);
+        A.add(A2);
+        
+        B.add(B1);
+        B.add(B2);
+        B.add(B3);
+        
+        rootNode.add(A);
+        rootNode.add(B);
+        
+        JTree tree = new JTree(rootNode);
+        frame.add(tree);
+        frame.setVisible(true);
 //        
   
     }
