@@ -4,12 +4,15 @@
  */
 package UI;
 
+import clases.Lista;
+
 /**
  *
  * @author ACER
  */
 public class ModificarDocumento extends javax.swing.JFrame {
-
+    private String path;
+    private Lista usuarios;
     /**
      * Creates new form ModificarUsuario
      */
@@ -99,13 +102,18 @@ public class ModificarDocumento extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         AgregarDocumento ventana = new AgregarDocumento();
+        ventana.setPath(getPath());
+        ventana.setUsuarios(getUsuarios());
         ventana.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_AgregarDocumentoButActionPerformed
 
     private void BorrarDocumentoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarDocumentoButActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         BorrarDocumento ventana = new BorrarDocumento();
+        ventana.setPath(getPath());
+        ventana.setUsuarios(getUsuarios());
         ventana.setVisible(true);
 
     }//GEN-LAST:event_BorrarDocumentoButActionPerformed
@@ -153,4 +161,32 @@ public class ModificarDocumento extends javax.swing.JFrame {
     private javax.swing.JButton VolverModificarDocumentoBut;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the path
+     */
+    public String getPath() {
+        return path;
+    }
+
+    /**
+     * @param path the path to set
+     */
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    /**
+     * @return the usuarios
+     */
+    public Lista getUsuarios() {
+        return usuarios;
+    }
+
+    /**
+     * @param usuarios the usuarios to set
+     */
+    public void setUsuarios(Lista usuarios) {
+        this.usuarios = usuarios;
+    }
 }

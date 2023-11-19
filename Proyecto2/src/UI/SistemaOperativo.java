@@ -4,12 +4,15 @@
  */
 package UI;
 
+import clases.Lista;
+
 /**
  *
  * @author ACER
  */
 public class SistemaOperativo extends javax.swing.JFrame {
     private String path;
+    private Lista usuarios;
     /**
      * Creates new form SistemaOperativo
      */
@@ -114,13 +117,17 @@ public class SistemaOperativo extends javax.swing.JFrame {
         ModificarUsuario ventanamodificar = new ModificarUsuario();
         ventanamodificar.setPath(getPath());
         ventanamodificar.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_ModificarUsuarioButActionPerformed
 
     private void ModificarDocumentosButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarDocumentosButActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         ModificarDocumento ventanamodificar = new ModificarDocumento();
+        ventanamodificar.setPath(getPath());
+        ventanamodificar.setUsuarios(getUsuarios());
         ventanamodificar.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_ModificarDocumentosButActionPerformed
 
     private void ImpresoraButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImpresoraButActionPerformed
@@ -187,5 +194,19 @@ public class SistemaOperativo extends javax.swing.JFrame {
      */
     public void setPath(String path) {
         this.path = path;
+    }
+
+    /**
+     * @return the usuarios
+     */
+    public Lista getUsuarios() {
+        return usuarios;
+    }
+
+    /**
+     * @param usuarios the usuarios to set
+     */
+    public void setUsuarios(Lista usuarios) {
+        this.usuarios = usuarios;
     }
 }

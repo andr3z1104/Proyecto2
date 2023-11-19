@@ -101,13 +101,16 @@ public class ModificarUsuario extends javax.swing.JFrame {
         AgregarUsuario ventanaagregaru = new AgregarUsuario();
         ventanaagregaru.setPath(getPath());
         ventanaagregaru.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_AgregarUsuarioButActionPerformed
 
     private void BorrarUsuarioButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarUsuarioButActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         BorrarUsuario ventana = new BorrarUsuario();
+        ventana.setPath(getPath());
         ventana.setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_BorrarUsuarioButActionPerformed
 

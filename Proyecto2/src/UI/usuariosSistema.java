@@ -94,7 +94,6 @@ public class usuariosSistema extends javax.swing.JFrame {
     private void botonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRefreshActionPerformed
         modelo.removeAllElements();
         csv C = new csv();
-        setPath(C.Seleccionar());
         Nodo pointer = C.leer(path).getHead();
         for (int i = 0; i < C.leer(path).getLength(); i++) {
             Usuario user = (Usuario) (pointer.getElement());

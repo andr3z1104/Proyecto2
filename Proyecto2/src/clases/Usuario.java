@@ -17,6 +17,7 @@ public class Usuario {
         this.nombre = nombre;
         this.tipo = tipo;
         this.ID = generarID();
+        this.Documentos=new Lista();
     }
     
     public String getNombre() {

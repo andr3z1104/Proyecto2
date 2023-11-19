@@ -4,12 +4,18 @@
  */
 package UI;
 
+import clases.Documento;
+import clases.Lista;
+import clases.Nodo;
+import clases.Usuario;
+
 /**
  *
  * @author ACER
  */
 public class BorrarDocumento extends javax.swing.JFrame {
-
+    private String path;
+    private Lista usuarios;
     /**
      * Creates new form BorrarUsuario
      */
@@ -34,6 +40,8 @@ public class BorrarDocumento extends javax.swing.JFrame {
         BorrarLabel = new javax.swing.JLabel();
         BorrarText = new javax.swing.JTextField();
         BorrarBut = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        user = new javax.swing.JTextField();
         FondoBorrarDocumento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,8 +52,8 @@ public class BorrarDocumento extends javax.swing.JFrame {
 
         TituloBorrarDocumento.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         TituloBorrarDocumento.setForeground(new java.awt.Color(255, 255, 255));
-        TituloBorrarDocumento.setText("Borrar usuario");
-        getContentPane().add(TituloBorrarDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
+        TituloBorrarDocumento.setText("Borrar documento");
+        getContentPane().add(TituloBorrarDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         VolverBorrarDocumentoBut.setBackground(new java.awt.Color(0, 0, 0));
         VolverBorrarDocumentoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -61,8 +69,8 @@ public class BorrarDocumento extends javax.swing.JFrame {
 
         BorrarLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BorrarLabel.setForeground(new java.awt.Color(255, 255, 255));
-        BorrarLabel.setText("Borrar:");
-        getContentPane().add(BorrarLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        BorrarLabel.setText("Documento:");
+        getContentPane().add(BorrarLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
 
         BorrarText.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         getContentPane().add(BorrarText, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 270, 30));
@@ -72,7 +80,18 @@ public class BorrarDocumento extends javax.swing.JFrame {
         BorrarBut.setForeground(new java.awt.Color(255, 255, 255));
         BorrarBut.setText("Aceptar");
         BorrarBut.setBorderPainted(false);
+        BorrarBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BorrarButActionPerformed(evt);
+            }
+        });
         getContentPane().add(BorrarBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Usuario");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+        getContentPane().add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 270, -1));
 
         FondoBorrarDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoBorrarDocumento.png"))); // NOI18N
         getContentPane().add(FondoBorrarDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 410));
@@ -84,8 +103,32 @@ public class BorrarDocumento extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         ModificarDocumento ventana = new ModificarDocumento();
+        ventana.setPath(getPath());
+        ventana.setUsuarios(getUsuarios());
         ventana.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_VolverBorrarDocumentoButActionPerformed
+
+    private void BorrarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarButActionPerformed
+        String usuario = user.getText();
+        String nombre = BorrarText.getText();
+        Nodo pAux = getUsuarios().getHead();
+        int cont = 0;
+        while (pAux!=null){
+            if ((((Usuario) pAux.getElement()).getNombre()).equalsIgnoreCase(usuario)){
+                Nodo pAux2 = ((Usuario) pAux.getElement()).getDocumentos().getHead();
+                while(pAux2!=null){
+                    if(((Documento) pAux2.getElement()).getNombre().equalsIgnoreCase(nombre)){
+                        break;
+                    }
+                    cont++;
+                    pAux2=pAux2.getNext();
+                }
+                ((Usuario) pAux.getElement()).getDocumentos().deleteAtIndex(cont);
+            }
+            pAux=pAux.getNext();
+        }
+    }//GEN-LAST:event_BorrarButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -130,6 +173,36 @@ public class BorrarDocumento extends javax.swing.JFrame {
     private javax.swing.JLabel FondoBorrarDocumento;
     private javax.swing.JLabel TituloBorrarDocumento;
     private javax.swing.JButton VolverBorrarDocumentoBut;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the path
+     */
+    public String getPath() {
+        return path;
+    }
+
+    /**
+     * @param path the path to set
+     */
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    /**
+     * @return the usuarios
+     */
+    public Lista getUsuarios() {
+        return usuarios;
+    }
+
+    /**
+     * @param usuarios the usuarios to set
+     */
+    public void setUsuarios(Lista usuarios) {
+        this.usuarios = usuarios;
+    }
 }

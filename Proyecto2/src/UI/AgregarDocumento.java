@@ -4,12 +4,19 @@
  */
 package UI;
 
+import clases.Documento;
+import clases.Lista;
+import clases.Nodo;
+import clases.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ACER
  */
 public class AgregarDocumento extends javax.swing.JFrame {
-
+    private String path;
+    private Lista usuarios;
     /**
      * Creates new form AgregarUsuario
      */
@@ -39,6 +46,8 @@ public class AgregarDocumento extends javax.swing.JFrame {
         TipoText = new javax.swing.JTextField();
         TamañoLabel = new javax.swing.JLabel();
         TamañoText = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        usuario = new javax.swing.JTextField();
         FondoAgregarDocumento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,7 +59,7 @@ public class AgregarDocumento extends javax.swing.JFrame {
         TituloAgregarDocumento.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         TituloAgregarDocumento.setForeground(new java.awt.Color(255, 255, 255));
         TituloAgregarDocumento.setText("Agregar Documento");
-        getContentPane().add(TituloAgregarDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
+        getContentPane().add(TituloAgregarDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         NombreText.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         NombreText.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +112,12 @@ public class AgregarDocumento extends javax.swing.JFrame {
         getContentPane().add(TamañoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
         getContentPane().add(TamañoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 310, 30));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Usuario");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 80, 30));
+        getContentPane().add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 310, -1));
+
         FondoAgregarDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoAgregarDocumento.png"))); // NOI18N
         getContentPane().add(FondoAgregarDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 410));
 
@@ -117,12 +132,31 @@ public class AgregarDocumento extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         ModificarDocumento ventana = new ModificarDocumento();
+        ventana.setPath(getPath());
+        ventana.setUsuarios(getUsuarios());
         ventana.setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_VolverAgregarDocumentoButActionPerformed
 
     private void AgregarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarButActionPerformed
-        // TODO add your handling code here:
+        String user = usuario.getText();
+        String nombre = NombreText.getText();
+        String tipo = TipoText.getText();
+        String tamaño = TamañoText.getText();
+        int tamaño1=Integer.parseInt(tamaño);
+        Nodo pAux = getUsuarios().getHead();
+        Documento doc = new Documento(nombre,tipo,tamaño1);
+        while (pAux!=null){
+            if ((((Usuario) pAux.getElement()).getNombre()).equalsIgnoreCase(user)){
+                ((Usuario) pAux.getElement()).getDocumentos().insertFinale(doc);
+                System.out.println("hola");
+                break;
+            }
+            pAux=pAux.getNext();
+        }
+        JOptionPane.showMessageDialog(null, "exitoso");
+        
     }//GEN-LAST:event_AgregarButActionPerformed
 
     /**
@@ -172,6 +206,36 @@ public class AgregarDocumento extends javax.swing.JFrame {
     private javax.swing.JLabel TituloAgregarDocumento;
     private javax.swing.JButton VolverAgregarDocumentoBut;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the path
+     */
+    public String getPath() {
+        return path;
+    }
+
+    /**
+     * @param path the path to set
+     */
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    /**
+     * @return the usuarios
+     */
+    public Lista getUsuarios() {
+        return usuarios;
+    }
+
+    /**
+     * @param usuarios the usuarios to set
+     */
+    public void setUsuarios(Lista usuarios) {
+        this.usuarios = usuarios;
+    }
 }

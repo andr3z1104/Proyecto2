@@ -4,12 +4,14 @@
  */
 package UI;
 
+import clases.csv;
+
 /**
  *
  * @author ACER
  */
 public class BorrarUsuario extends javax.swing.JFrame {
-
+     private String path;
     /**
      * Creates new form BorrarUsuario
      */
@@ -72,6 +74,11 @@ public class BorrarUsuario extends javax.swing.JFrame {
         BorrarBut.setForeground(new java.awt.Color(255, 255, 255));
         BorrarBut.setText("Aceptar");
         BorrarBut.setBorderPainted(false);
+        BorrarBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BorrarButActionPerformed(evt);
+            }
+        });
         getContentPane().add(BorrarBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, -1, -1));
 
         FondoBorrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoBorrarUsuario.png"))); // NOI18N
@@ -86,6 +93,12 @@ public class BorrarUsuario extends javax.swing.JFrame {
         ModificarUsuario ventana = new ModificarUsuario();
         ventana.setVisible(true);
     }//GEN-LAST:event_VolverBorrarUsuarioButActionPerformed
+
+    private void BorrarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarButActionPerformed
+      String nombre = BorrarText.getText();
+      csv C = new csv();
+      C.borrarCSV(getPath(), C.borrarLine(getPath(),nombre));
+    }//GEN-LAST:event_BorrarButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,4 +144,18 @@ public class BorrarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton VolverBorrarUsuarioBut;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the path
+     */
+    public String getPath() {
+        return path;
+    }
+
+    /**
+     * @param path the path to set
+     */
+    public void setPath(String path) {
+        this.path = path;
+    }
 }

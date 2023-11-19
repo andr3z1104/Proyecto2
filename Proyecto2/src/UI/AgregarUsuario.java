@@ -168,10 +168,10 @@ public class AgregarUsuario extends javax.swing.JFrame {
                     choice = button.getText();
                     break;
                 }
-                else{
-                    JOptionPane.showMessageDialog(null, "Por favor indique la prioridad");
-                    break;
-                }
+//                else{
+//                    JOptionPane.showMessageDialog(null, "Por favor indique la prioridad");
+//                    break;
+//                }
             }
        csv C = new csv();
        C.modificarCSV(getPath(),C2.ObtenerStr(getPath()), nombre,choice);

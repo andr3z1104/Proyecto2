@@ -91,9 +91,44 @@ public class csv {
                e.getStackTrace();
               JOptionPane.showMessageDialog(null, "caca1");
           }
-           System.out.println(s);
         return s;   
        }
+       public String borrarLine(String path, String nombre){
+       String s="";
+       BufferedReader br = null;
+           
+           try {
+           br =new BufferedReader(new FileReader(path));
+           
+           String line = br.readLine();
+               
+           while (line!=null) {
+              if(!line.contains(nombre)){
+              s=s+line+"\n";
+              }
+              line = br.readLine();
+           }
+
+           br.close();
+           } catch (Exception e) {
+               e.getStackTrace();
+              JOptionPane.showMessageDialog(null, "caca1");
+          }
+       
+       return s;
+       }
     
-        
+        public void borrarCSV(String path,String data){
+            try {
+            PrintWriter output = new PrintWriter(path);
+            output.write(data); 
+            output.close(); 
+        } 
+  
+        catch (Exception e) { 
+            e.getStackTrace();
+            JOptionPane.showMessageDialog(null, e);
+        }
+            
+        }
 }
