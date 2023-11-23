@@ -89,7 +89,7 @@ public class csv {
            br.close();
            } catch (Exception e) {
                e.getStackTrace();
-              JOptionPane.showMessageDialog(null, "caca1");
+              JOptionPane.showMessageDialog(null, "1");
           }
         return s;   
        }
@@ -112,7 +112,7 @@ public class csv {
            br.close();
            } catch (Exception e) {
                e.getStackTrace();
-              JOptionPane.showMessageDialog(null, "caca1");
+              JOptionPane.showMessageDialog(null, "2");
           }
        
        return s;

@@ -16,6 +16,7 @@ import clases.Usuario;
 public class BorrarDocumento extends javax.swing.JFrame {
     private String path;
     private Lista usuarios;
+    private usuariosSistema uc;
     /**
      * Creates new form BorrarUsuario
      */
@@ -105,6 +106,7 @@ public class BorrarDocumento extends javax.swing.JFrame {
         ModificarDocumento ventana = new ModificarDocumento();
         ventana.setPath(getPath());
         ventana.setUsuarios(getUsuarios());
+        ventana.setUc(getUc());
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_VolverBorrarDocumentoButActionPerformed
@@ -205,4 +207,15 @@ public class BorrarDocumento extends javax.swing.JFrame {
     public void setUsuarios(Lista usuarios) {
         this.usuarios = usuarios;
     }
+
+    public usuariosSistema getUc() {
+        return uc;
+    }
+
+    public void setUc(usuariosSistema uc) {
+        this.uc = uc;
+    }
+    
+    
+    
 }

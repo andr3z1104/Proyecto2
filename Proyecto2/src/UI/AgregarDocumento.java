@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 public class AgregarDocumento extends javax.swing.JFrame {
     private String path;
     private Lista usuarios;
+    private usuariosSistema uc;
     /**
      * Creates new form AgregarUsuario
      */
@@ -134,6 +135,7 @@ public class AgregarDocumento extends javax.swing.JFrame {
         ModificarDocumento ventana = new ModificarDocumento();
         ventana.setPath(getPath());
         ventana.setUsuarios(getUsuarios());
+        ventana.setUc(getUc());
         ventana.setVisible(true);
         this.dispose();
         
@@ -155,6 +157,7 @@ public class AgregarDocumento extends javax.swing.JFrame {
             }
             pAux=pAux.getNext();
         }
+        getUc().setLista_Usuarios(usuarios);
         JOptionPane.showMessageDialog(null, "exitoso");
         
     }//GEN-LAST:event_AgregarButActionPerformed
@@ -238,4 +241,14 @@ public class AgregarDocumento extends javax.swing.JFrame {
     public void setUsuarios(Lista usuarios) {
         this.usuarios = usuarios;
     }
+
+    public usuariosSistema getUc() {
+        return uc;
+    }
+
+    public void setUc(usuariosSistema uc) {
+        this.uc = uc;
+    }
+    
+    
 }

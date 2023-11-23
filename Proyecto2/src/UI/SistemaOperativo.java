@@ -13,6 +13,7 @@ import clases.Lista;
 public class SistemaOperativo extends javax.swing.JFrame {
     private String path;
     private Lista usuarios;
+    private usuariosSistema uc;
     /**
      * Creates new form SistemaOperativo
      */
@@ -117,6 +118,7 @@ public class SistemaOperativo extends javax.swing.JFrame {
         ModificarUsuario ventanamodificar = new ModificarUsuario();
         ventanamodificar.setPath(getPath());
         ventanamodificar.setVisible(true);
+        ventanamodificar.setUc(getUc());
         this.dispose();
     }//GEN-LAST:event_ModificarUsuarioButActionPerformed
 
@@ -127,6 +129,7 @@ public class SistemaOperativo extends javax.swing.JFrame {
         ventanamodificar.setPath(getPath());
         ventanamodificar.setUsuarios(getUsuarios());
         ventanamodificar.setVisible(true);
+        ventanamodificar.setUc(getUc());
         this.dispose();
     }//GEN-LAST:event_ModificarDocumentosButActionPerformed
 
@@ -209,4 +212,18 @@ public class SistemaOperativo extends javax.swing.JFrame {
     public void setUsuarios(Lista usuarios) {
         this.usuarios = usuarios;
     }
+
+    public usuariosSistema getUc() {
+        return uc;
+    }
+
+    public void setUc(usuariosSistema uc) {
+        this.uc = uc;
+    }
+
+
+
 }
+
+
+

@@ -17,6 +17,8 @@ public class AgregarUsuario extends javax.swing.JFrame {
     
     
     private String path;
+    private Lista usuarios;
+    private usuariosSistema uc;
     
     /**
      * Creates new form AgregarUsuario
@@ -141,6 +143,9 @@ public class AgregarUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         ModificarUsuario ventana = new ModificarUsuario();
+        ventana.setPath(getPath());
+        ventana.setUsuarios(getUsuarios());
+        ventana.setUc(getUc());
         ventana.setVisible(true);
         
     }//GEN-LAST:event_VolverAgregarUsuarioButActionPerformed
@@ -151,11 +156,11 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
     private void AgregarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarButActionPerformed
           csv C2 = new csv();
-        if (NombreText.getText().equalsIgnoreCase("") || C2.ObtenerStr(getPath()).equals(NombreText.getText())){
+        if (NombreText.getText().equalsIgnoreCase("") || C2.ObtenerStr(getPath()).equalsIgnoreCase(NombreText.getText())){
             if (NombreText.getText().equalsIgnoreCase("")){
            JOptionPane.showMessageDialog(null, "Por favor ingrese un nombbre valido");
            }
-           if (C2.ObtenerStr(getPath()).equals(NombreText.getText())){
+            else if (NombreText.getText().equalsIgnoreCase(C2.ObtenerStr(getPath()))){
                JOptionPane.showMessageDialog(null, "El usuario ya existe, solo puede agregar nuevos usuarios");
                NombreText.setText("");
            }
@@ -247,5 +252,23 @@ public class AgregarUsuario extends javax.swing.JFrame {
         this.path = path;
     }
 
+    public Lista getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(Lista usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public usuariosSistema getUc() {
+        return uc;
+    }
+
+    public void setUc(usuariosSistema uc) {
+        this.uc = uc;
+    }
+
+    
+    
 
 }

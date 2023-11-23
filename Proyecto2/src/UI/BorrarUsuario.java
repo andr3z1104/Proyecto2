@@ -4,7 +4,8 @@
  */
 package UI;
 
-import clases.csv;
+
+import clases.*;
 
 /**
  *
@@ -12,6 +13,8 @@ import clases.csv;
  */
 public class BorrarUsuario extends javax.swing.JFrame {
      private String path;
+     private Lista usuarios;
+     private usuariosSistema uc;
     /**
      * Creates new form BorrarUsuario
      */
@@ -91,6 +94,9 @@ public class BorrarUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         ModificarUsuario ventana = new ModificarUsuario();
+        ventana.setPath(getPath());
+        ventana.setUsuarios(getUsuarios());
+        ventana.setUc(getUc());
         ventana.setVisible(true);
     }//GEN-LAST:event_VolverBorrarUsuarioButActionPerformed
 
@@ -158,4 +164,25 @@ public class BorrarUsuario extends javax.swing.JFrame {
     public void setPath(String path) {
         this.path = path;
     }
+
+    public Lista getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(Lista usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public usuariosSistema getUc() {
+        return uc;
+    }
+
+    public void setUc(usuariosSistema uc) {
+        this.uc = uc;
+    }
+    
+    
+    
+    
+    
 }

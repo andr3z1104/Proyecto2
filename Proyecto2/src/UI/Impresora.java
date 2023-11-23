@@ -4,11 +4,17 @@
  */
 package UI;
 
+import clases.*;
+
 /**
  *
  * @author ACER
  */
 public class Impresora extends javax.swing.JFrame {
+    
+    private String path;
+    private Lista usuarios;
+    private usuariosSistema uc;
 
     /**
      * Creates new form Impresora
@@ -33,6 +39,8 @@ public class Impresora extends javax.swing.JFrame {
         ImprimirBut = new javax.swing.JButton();
         BorrarDocEspecificoBut = new javax.swing.JButton();
         VolverImpresoraBut = new javax.swing.JButton();
+        ImprimirBut1 = new javax.swing.JButton();
+        EnviarDocumento = new javax.swing.JButton();
         FondoImpresora = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,7 +59,7 @@ public class Impresora extends javax.swing.JFrame {
         ImprimirBut.setForeground(new java.awt.Color(255, 255, 255));
         ImprimirBut.setText("Imprimir");
         ImprimirBut.setBorderPainted(false);
-        getContentPane().add(ImprimirBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 210, 50));
+        getContentPane().add(ImprimirBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 210, 50));
 
         BorrarDocEspecificoBut.setBackground(new java.awt.Color(0, 0, 0));
         BorrarDocEspecificoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -77,6 +85,24 @@ public class Impresora extends javax.swing.JFrame {
         });
         getContentPane().add(VolverImpresoraBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
+        ImprimirBut1.setBackground(new java.awt.Color(0, 0, 0));
+        ImprimirBut1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        ImprimirBut1.setForeground(new java.awt.Color(255, 255, 255));
+        ImprimirBut1.setText("Imprimir");
+        ImprimirBut1.setBorderPainted(false);
+        getContentPane().add(ImprimirBut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 210, 50));
+
+        EnviarDocumento.setBackground(new java.awt.Color(0, 0, 0));
+        EnviarDocumento.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        EnviarDocumento.setForeground(new java.awt.Color(255, 255, 255));
+        EnviarDocumento.setText("Enviar Documento");
+        EnviarDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EnviarDocumentoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(EnviarDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 210, -1));
+
         FondoImpresora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoImpresora.png"))); // NOI18N
         getContentPane().add(FondoImpresora, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 380));
 
@@ -87,6 +113,9 @@ public class Impresora extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         SistemaOperativo ventana = new SistemaOperativo();
+        ventana.setPath(getPath());
+        ventana.setUsuarios(getUsuarios());
+        ventana.setUc(getUc());
         ventana.setVisible(true);
     }//GEN-LAST:event_VolverImpresoraButActionPerformed
 
@@ -96,6 +125,10 @@ public class Impresora extends javax.swing.JFrame {
         BorrarDocEspecifico ventana = new BorrarDocEspecifico();
         ventana.setVisible(true);
     }//GEN-LAST:event_BorrarDocEspecificoButActionPerformed
+
+    private void EnviarDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarDocumentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EnviarDocumentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,10 +167,41 @@ public class Impresora extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BorrarDocEspecificoBut;
+    private javax.swing.JButton EnviarDocumento;
     private javax.swing.JLabel FondoImpresora;
     private javax.swing.JButton ImprimirBut;
+    private javax.swing.JButton ImprimirBut1;
     private javax.swing.JLabel TituloImpresora;
     private javax.swing.JButton VolverImpresoraBut;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public Lista getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(Lista usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public usuariosSistema getUc() {
+        return uc;
+    }
+
+    public void setUc(usuariosSistema uc) {
+        this.uc = uc;
+    }
+
+    
+
+
+
 }

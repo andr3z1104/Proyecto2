@@ -76,21 +76,20 @@ public class CargarArchivo extends javax.swing.JFrame {
             String Ruta = jFileChooser.getSelectedFile().getPath();
             JOptionPane.showMessageDialog(null, "El archivo se leyó ");
             csv c=new csv();
+            
+            usuariosSistema window=new usuariosSistema();
+            window.setPath(Ruta);
+            window.setVisible(true);
+            
             SistemaOperativo ventana = new SistemaOperativo();
             ventana.setPath(Ruta);
             ventana.setUsuarios(c.leer(Ruta));
             ventana.setVisible(true);
-            usuariosSistema window=new usuariosSistema();
-            window.setPath(Ruta);
-            window.setVisible(true);
+            ventana.setUc(window);
+            
             this.dispose();
         }
-//        this.setVisible(false);
-//        SistemaOperativo ventanasistema = new SistemaOperativo();
-//        ventanasistema.setVisible(true);
 
-//        csv c = new csv();
-//        c.leer(c.Seleccionar()).print();
         
     }//GEN-LAST:event_CargarArchivoButActionPerformed
 

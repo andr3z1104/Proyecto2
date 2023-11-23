@@ -4,12 +4,16 @@
  */
 package UI;
 
+import clases.*;
+
 /**
  *
  * @author ACER
  */
 public class ModificarUsuario extends javax.swing.JFrame {
     private String path;
+    private Lista usuarios;
+    private usuariosSistema uc;
     /**
      * Creates new form ModificarUsuario
      */
@@ -92,6 +96,9 @@ public class ModificarUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         SistemaOperativo ventanasistema = new SistemaOperativo();
+        ventanasistema.setPath(getPath());
+        ventanasistema.setUsuarios(getUsuarios());
+        ventanasistema.setUc(getUc());
         ventanasistema.setVisible(true);
     }//GEN-LAST:event_VolverModificarUsuarioButActionPerformed
 
@@ -100,6 +107,8 @@ public class ModificarUsuario extends javax.swing.JFrame {
         this.setVisible(false);
         AgregarUsuario ventanaagregaru = new AgregarUsuario();
         ventanaagregaru.setPath(getPath());
+        ventanaagregaru.setUsuarios(getUsuarios());
+        ventanaagregaru.setUc(getUc());
         ventanaagregaru.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_AgregarUsuarioButActionPerformed
@@ -109,6 +118,8 @@ public class ModificarUsuario extends javax.swing.JFrame {
         this.setVisible(false);
         BorrarUsuario ventana = new BorrarUsuario();
         ventana.setPath(getPath());
+        ventana.setUsuarios(getUsuarios());
+        ventana.setUc(getUc());
         ventana.setVisible(true);
         this.dispose();
 
@@ -171,4 +182,22 @@ public class ModificarUsuario extends javax.swing.JFrame {
     public void setPath(String path) {
         this.path = path;
     }
+
+    public Lista getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(Lista usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public usuariosSistema getUc() {
+        return uc;
+    }
+
+    public void setUc(usuariosSistema uc) {
+        this.uc = uc;
+    }
+    
+    
 }

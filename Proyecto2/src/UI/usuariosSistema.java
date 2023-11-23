@@ -17,6 +17,7 @@ public class usuariosSistema extends javax.swing.JFrame {
     
     private String path;
     DefaultListModel modelo = new DefaultListModel();
+    private Lista lista_Usuarios;
     
     /**
      * Creates new form usuariosSistema
@@ -39,6 +40,8 @@ public class usuariosSistema extends javax.swing.JFrame {
         botonRefresh = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaUsuarios = new javax.swing.JList<>();
+        getInfo = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,6 +61,16 @@ public class usuariosSistema extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listaUsuarios);
 
+        getInfo.setText("Get Info");
+        getInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getInfoActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("Usuarios en el Sistema");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,23 +82,32 @@ public class usuariosSistema extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(botonRefresh))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(botonRefresh)
+                        .addGap(120, 120, 120)
+                        .addComponent(getInfo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(botonRefresh)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addGap(40, 40, 40)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonRefresh)
+                    .addComponent(getInfo))
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
@@ -101,6 +123,37 @@ public class usuariosSistema extends javax.swing.JFrame {
                 pointer = pointer.getNext();
             }
     }//GEN-LAST:event_botonRefreshActionPerformed
+
+    private void getInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getInfoActionPerformed
+        
+        Object[] h = listaUsuarios.getSelectedValues();
+
+        String w = (String) h[0];
+      
+        String docu = "";
+        
+        Nodo pointer = getLista_Usuarios().getHead();
+        while(pointer != null){
+            if(((Usuario)pointer.getElement()).getNombre().equalsIgnoreCase(w)){
+                System.out.println("AA");
+                Usuario user = (Usuario) pointer.getElement();
+               
+                Nodo d = user.getDocumentos().getHead();
+                while(d != null){
+                    Documento dc = (Documento) d.getElement();
+                    docu = docu + "Nombre:" + dc.getNombre() +"\n"+ "Tipo:" + dc.getTipo() +"\n"+"Size:" + dc.getSize() + "\n";
+                    d = d.getNext();
+                }
+                pointer = pointer.getNext();
+            }
+            else{
+                pointer = pointer.getNext();
+            }
+        }
+        
+        JOptionPane.showMessageDialog(rootPane, docu);
+        
+    }//GEN-LAST:event_getInfoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,6 +192,8 @@ public class usuariosSistema extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRefresh;
+    private javax.swing.JButton getInfo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaUsuarios;
@@ -152,4 +207,13 @@ public class usuariosSistema extends javax.swing.JFrame {
         this.path = path;
     }
 
+    public Lista getLista_Usuarios() {
+        return lista_Usuarios;
+    }
+
+    public void setLista_Usuarios(Lista lista_Usuarios) {
+        this.lista_Usuarios = lista_Usuarios;
+    }
+
+    
 }
