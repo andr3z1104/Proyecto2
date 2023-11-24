@@ -21,6 +21,10 @@ public class Bin_Heap {
         this.root = root;
     }
     
+     public int size() {
+        return getSize(root);
+    }
+    
     
     public boolean isEmpty(){
         return getRoot() == null;
@@ -38,20 +42,7 @@ public class Bin_Heap {
                 nodo.setSegundos(nodo.getSegundos()/2);
                 return nodo;
             }
-//            switch (usuario.getTipo()) {
-//                case 1 -> {
-//                    nodo.setSegundos(nodo.getSegundos()/10);
-//                    return nodo;
-//                }
-//                case 2 -> {
-//                    nodo.setSegundos(nodo.getSegundos()/5);
-//                    return nodo;
-//                }
-//                default -> {
-//                    nodo.setSegundos(nodo.getSegundos()/2);
-//                    return nodo;
-//                }
-//            }
+
         }
         else{
             return nodo;
@@ -71,24 +62,25 @@ public class Bin_Heap {
             Nodo_Documento pointer = getRoot();
             while(true){
                 if(segundos > pointer.getSegundos()){
+                    
                     if(pointer.getLeftSon() == null){
                         pointer.setLeftSon(nodo);
                         heapifyUp(nodo);
                         break;
                     }
-                    else{
-                        pointer = pointer.getLeftSon();
-                    }
-                }
-                else{
-                    if(pointer.getRightSon() == null){
+                    else if(pointer.getRightSon() == null){
                         pointer.setRightSon(nodo);
                         heapifyUp(nodo);
                         break;
                     }
                     else{
-                        pointer = pointer.getRightSon();
-                    }
+                        Nodo_Documento pointer2 = pointer.getRightSon();
+                        pointer = pointer.getLeftSon();
+                        
+                        if(pointer.getLeftSon() != null && pointer.getRightSon() != null){
+                            pointer = pointer2;
+                        }
+                    } 
                 }
             }
         }
@@ -101,11 +93,14 @@ public class Bin_Heap {
             return null;
         }else{
             Nodo_Documento pointer = getRoot();
-
-            
             Nodo_Documento pointer2 = getLastNode();
+            
+          
             setRoot(pointer2);
+            pointer2.setLeftSon(pointer.getLeftSon());
+            pointer2.setRightSon(pointer.getRightSon());
             heapifyDown(getRoot());
+            
             return pointer;
         }
     }
@@ -124,6 +119,7 @@ public class Bin_Heap {
         }
         else{
             pointer2 = pointer;
+            pointer = null;
         }
         
         return pointer2;
@@ -143,17 +139,26 @@ public class Bin_Heap {
     }
     
     public Nodo_Documento searchSubRoot(Nodo_Documento pointer, Nodo_Documento pointer2){
+        try{
+        
         if(pointer.getLeftSon() == pointer2 || pointer.getRightSon() == pointer2){
             return pointer;
-        }
-        
-        Nodo_Documento leftSubRoot = searchSubRoot(pointer.getLeftSon(), pointer2);
-        if(leftSubRoot != null){
-            return leftSubRoot;
-        }
-        
-        Nodo_Documento rightSubRoot = searchSubRoot(pointer.getRightSon(), pointer2);
-        return rightSubRoot;
+                }
+            
+        }catch(Exception e){
+            try{
+                Nodo_Documento leftSubRoot = searchSubRoot(pointer.getLeftSon(), pointer2);
+                if(leftSubRoot != null){
+                return leftSubRoot;
+                    }
+                
+            }catch(Exception w){
+
+            Nodo_Documento rightSubRoot = searchSubRoot(pointer.getRightSon(), pointer2);
+            return rightSubRoot;
+            }  
+        }   
+       return pointer;   
     }
     
     
@@ -175,6 +180,16 @@ public class Bin_Heap {
         Nodo_Documento temp = n1;
         n1 = n2;
         n2 = temp;
+    }
+    
+    public int getSize(Nodo_Documento node) {
+        if (node == null) {
+            return 0;
+        }
+        int size = 1;
+        size += getSize(node.getLeftSon());
+        size += getSize(node.getRightSon());
+        return size;
     }
     
     
