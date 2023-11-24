@@ -96,6 +96,7 @@ public class Impresora extends javax.swing.JFrame {
         EnviarDocumento.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         EnviarDocumento.setForeground(new java.awt.Color(255, 255, 255));
         EnviarDocumento.setText("Enviar Documento");
+        EnviarDocumento.setBorderPainted(false);
         EnviarDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EnviarDocumentoActionPerformed(evt);
@@ -128,6 +129,9 @@ public class Impresora extends javax.swing.JFrame {
 
     private void EnviarDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarDocumentoActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        EnviarDocumento ventana = new EnviarDocumento();
+        ventana.setVisible(true);
     }//GEN-LAST:event_EnviarDocumentoActionPerformed
 
     /**
