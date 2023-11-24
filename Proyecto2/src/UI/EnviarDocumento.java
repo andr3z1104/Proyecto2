@@ -3,18 +3,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package UI;
+import clases.*;
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author andre
+ * @author ACER
  */
 public class EnviarDocumento extends javax.swing.JFrame {
 
+    
+    
+    private String path;
+    private Lista usuarios;
+    private usuariosSistema uc;
+    
     /**
-     * Creates new form EnviarDocumento
+     * Creates new form AgregarUsuario
      */
     public EnviarDocumento() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -26,21 +38,141 @@ public class EnviarDocumento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        TituloEnviarDocumento = new javax.swing.JLabel();
+        NombreUsuarioText = new javax.swing.JTextField();
+        NombreUsuarioLabel = new javax.swing.JLabel();
+        PrioridadLabel = new javax.swing.JLabel();
+        VolverEnviarDocumentoBut = new javax.swing.JButton();
+        EnviarBut = new javax.swing.JButton();
+        SiBut = new javax.swing.JRadioButton();
+        NoBut = new javax.swing.JRadioButton();
+        NombreDocumentoLabel = new javax.swing.JLabel();
+        NombreDocumentoText = new javax.swing.JTextField();
+        FondoEnviarDocumento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(531, 235, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 132, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoBorrarDocumento.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 480, 339));
+        TituloEnviarDocumento.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        TituloEnviarDocumento.setForeground(new java.awt.Color(255, 255, 255));
+        TituloEnviarDocumento.setText("Enviar Documento");
+        getContentPane().add(TituloEnviarDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
+
+        NombreUsuarioText.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        NombreUsuarioText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreUsuarioTextActionPerformed(evt);
+            }
+        });
+        getContentPane().add(NombreUsuarioText, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 310, 30));
+
+        NombreUsuarioLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        NombreUsuarioLabel.setForeground(new java.awt.Color(255, 255, 255));
+        NombreUsuarioLabel.setText("Nombre del usuario:");
+        getContentPane().add(NombreUsuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 190, 30));
+
+        PrioridadLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        PrioridadLabel.setForeground(new java.awt.Color(255, 255, 255));
+        PrioridadLabel.setText("Prioritario:");
+        getContentPane().add(PrioridadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
+
+        VolverEnviarDocumentoBut.setBackground(new java.awt.Color(0, 0, 0));
+        VolverEnviarDocumentoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        VolverEnviarDocumentoBut.setForeground(new java.awt.Color(255, 255, 255));
+        VolverEnviarDocumentoBut.setText("Volver");
+        VolverEnviarDocumentoBut.setBorderPainted(false);
+        VolverEnviarDocumentoBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VolverEnviarDocumentoButActionPerformed(evt);
+            }
+        });
+        getContentPane().add(VolverEnviarDocumentoBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+
+        EnviarBut.setBackground(new java.awt.Color(0, 0, 0));
+        EnviarBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        EnviarBut.setForeground(new java.awt.Color(255, 255, 255));
+        EnviarBut.setText("Enviar");
+        EnviarBut.setBorderPainted(false);
+        EnviarBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EnviarButActionPerformed(evt);
+            }
+        });
+        getContentPane().add(EnviarBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, -1, -1));
+
+        buttonGroup1.add(SiBut);
+        SiBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        SiBut.setText("Si");
+        SiBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SiButActionPerformed(evt);
+            }
+        });
+        getContentPane().add(SiBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, -1, -1));
+
+        buttonGroup1.add(NoBut);
+        NoBut.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        NoBut.setText("No");
+        NoBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NoButActionPerformed(evt);
+            }
+        });
+        getContentPane().add(NoBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, -1, -1));
+
+        NombreDocumentoLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        NombreDocumentoLabel.setForeground(new java.awt.Color(255, 255, 255));
+        NombreDocumentoLabel.setText("Nombre del documento:");
+        getContentPane().add(NombreDocumentoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
+
+        NombreDocumentoText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreDocumentoTextActionPerformed(evt);
+            }
+        });
+        getContentPane().add(NombreDocumentoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 310, 30));
+
+        FondoEnviarDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoEnviarDocumento.png"))); // NOI18N
+        getContentPane().add(FondoEnviarDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void NombreUsuarioTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreUsuarioTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreUsuarioTextActionPerformed
+
+    private void VolverEnviarDocumentoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverEnviarDocumentoButActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        Impresora ventana = new Impresora();
+        ventana.setPath(getPath());
+        ventana.setUsuarios(getUsuarios());
+        ventana.setUc(getUc());
+        ventana.setVisible(true);
+        
+    }//GEN-LAST:event_VolverEnviarDocumentoButActionPerformed
+
+    private void SiButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiButActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SiButActionPerformed
+
+    private void EnviarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarButActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EnviarButActionPerformed
+
+    private void NoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoButActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NoButActionPerformed
+
+    private void NombreDocumentoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreDocumentoTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreDocumentoTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -68,6 +200,7 @@ public class EnviarDocumento extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(EnviarDocumento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -78,7 +211,52 @@ public class EnviarDocumento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton EnviarBut;
+    private javax.swing.JLabel FondoEnviarDocumento;
+    private javax.swing.JRadioButton NoBut;
+    private javax.swing.JLabel NombreDocumentoLabel;
+    private javax.swing.JTextField NombreDocumentoText;
+    private javax.swing.JLabel NombreUsuarioLabel;
+    private javax.swing.JTextField NombreUsuarioText;
+    private javax.swing.JLabel PrioridadLabel;
+    private javax.swing.JRadioButton SiBut;
+    private javax.swing.JLabel TituloEnviarDocumento;
+    private javax.swing.JButton VolverEnviarDocumentoBut;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+        /**
+     * @return the path
+     */
+    public String getPath() {
+        return path;
+    }
+
+    /**
+     * @param path the path to set
+     */
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public Lista getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(Lista usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public usuariosSistema getUc() {
+        return uc;
+    }
+
+    public void setUc(usuariosSistema uc) {
+        this.uc = uc;
+    }
+
+    
+    
+
 }
