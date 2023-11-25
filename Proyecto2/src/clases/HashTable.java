@@ -39,25 +39,26 @@ public class HashTable {
         this.tabla = tabla;
     }
     
-    private int hashFunction(Integer usuario){
+    private int hashFunction(String usuario){
         int hashCode = usuario.hashCode();
         return Math.abs(hashCode) % tabla.length;
     }
     
      public void insert(Usuario Usuario){
-        int usuario = Usuario.getID();
+        String usuario = Usuario.getNombre();
         int index = hashFunction(usuario);
-        tabla[index].insertAtIndex(usuario,index);
+        tabla[index].insertAtIndex(Usuario.getDocumentos(),index);
+         System.out.println(index);
     }
      
     public void delete(Usuario Usuario){
-        int usuario = Usuario.getID();
+        String usuario = Usuario.getNombre();
         int index = hashFunction(usuario);
         tabla[index].deleteAtIndex(index);
     }
     
     public Nodo search(Usuario Usuario){
-        int usuario = Usuario.getID();
+        String usuario = Usuario.getNombre();
         int index = hashFunction(usuario);
         return tabla[index].searchByIndex(index);
     }

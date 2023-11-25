@@ -28,7 +28,7 @@ public class Proyecto_100 {
 
         Bin_Heap heap = new Bin_Heap();
         Timer ti = new Timer();
-        HashTable h = new HashTable(10);
+        HashTable h = new HashTable(30);
         Graficar_Bin g = new Graficar_Bin(heap);
         
         
