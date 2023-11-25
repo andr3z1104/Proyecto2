@@ -109,20 +109,26 @@ public class Bin_Heap {
         Nodo_Documento pointer = getRoot();
         Nodo_Documento pointer2 = null;
         
+        if(pointer.getRightSon() == null){
+            pointer2 = pointer.getLeftSon();
+            pointer.setLeftSon(null);
+            return pointer2;
+        }
+        
         while(pointer.getRightSon() != null){
+            pointer2 = pointer;
             pointer = pointer.getRightSon();
         }
         
-        if(pointer.getLeftSon() != null){
-            pointer2 = pointer.getLeftSon();
-            pointer.setLeftSon(null);
+        if(pointer2 != null){
+            pointer2.setRightSon(null);
         }
         else{
             pointer2 = pointer;
             pointer = null;
         }
         
-        return pointer2;
+        return pointer;
     }
     
     public void heapifyUp(Nodo_Documento nodo){
