@@ -8,6 +8,7 @@ package clases;
 public class Bin_Heap {
  
     private Nodo_Documento root;
+   
 
     public Bin_Heap() {
         this.root = null;
@@ -24,6 +25,7 @@ public class Bin_Heap {
      public int size() {
         return getSize(root);
     }
+
     
     
     public boolean isEmpty(){
@@ -49,9 +51,9 @@ public class Bin_Heap {
         }
     }
     
-    public void insertNodo(String nombre, String tipo, int size, boolean prio, Timer ti, Usuario usuario){
-        int segundos = ti.getSegundos();
-        Nodo_Documento nodo = new Nodo_Documento(nombre, tipo, size, segundos, prio);
+    public void insertNodo(String nombre, String tipo, int size, boolean prio, int ti, Usuario usuario){
+//        int segundos = ti.getSegundos();
+        Nodo_Documento nodo = new Nodo_Documento(nombre, tipo, size, ti, prio);
         
         checkPrio(nodo, usuario);
         
@@ -61,7 +63,7 @@ public class Bin_Heap {
         else{
             Nodo_Documento pointer = getRoot();
             while(true){
-                if(segundos > pointer.getSegundos()){
+                if(ti > pointer.getSegundos()){
                     
                     if(pointer.getLeftSon() == null){
                         pointer.setLeftSon(nodo);
@@ -99,7 +101,7 @@ public class Bin_Heap {
             setRoot(pointer2);
             pointer2.setLeftSon(pointer.getLeftSon());
             pointer2.setRightSon(pointer.getRightSon());
-            heapifyDown(getRoot());
+            heapifyDown(getRoot(), true);
             
             return pointer;
         }
@@ -168,24 +170,87 @@ public class Bin_Heap {
     }
     
     
-    public void heapifyDown(Nodo_Documento nodo){
-       Nodo_Documento pointer = nodo;
-       if(pointer.getLeftSon() != null && pointer.getLeftSon().getSegundos() > pointer.getSegundos()){
-            pointer.setLeftSon(pointer.getLeftSon());
-        }
-       else if(pointer.getRightSon() != null && pointer.getRightSon().getSegundos() > pointer.getSegundos()){
-           pointer.setRightSon(pointer.getRightSon());
+    public void heapifyDown(Nodo_Documento nodo, boolean isFirstTime){
+       
+       if(nodo.getLeftSon() != null && nodo.getLeftSon().getSegundos() < nodo.getSegundos()){
+           Nodo_Documento leftSon = nodo.getLeftSon();
+           
+           Nodo_Documento temp = new Nodo_Documento(leftSon.getNombre(),leftSon.getTipo(),leftSon.getSize(),leftSon.getSegundos(),leftSon.isPrio());
+           temp.setLeftSon(leftSon.getLeftSon());
+           temp.setRightSon(leftSon.getRightSon());
+           
+           Nodo_Documento temp2;
+            temp2 = new Nodo_Documento(nodo.getNombre(), nodo.getTipo(), nodo.getSize(), nodo.getSegundos(), nodo.isPrio());
+           temp2.setLeftSon(leftSon);
+           temp2.setRightSon(nodo.getRightSon());
+           
+           leftSon.setLeftSon(null);
+           leftSon.setRightSon(null);
+           
+           
+           nodo.setRightSon(null);
+           nodo.setLeftSon(null);
+           
+           
+           
+           Nodo_Documento node = swapNodes(nodo, leftSon);
+           
+           node.setRightSon(temp2.getRightSon());
+           node.setLeftSon(nodo);
+           
+           nodo.setLeftSon(temp.getLeftSon());
+           nodo.setRightSon(temp.getRightSon());
+           
+              if(isFirstTime){
+           setRoot(node);
+           heapifyDown(nodo, false);
+            }else{
+             getRoot().setLeftSon(node);
+             heapifyDown(nodo, false);
+            }
+           
        }
-       if(pointer != nodo){
-           swapNodes(nodo, pointer);
-           heapifyDown(pointer);
+       else if(nodo.getRightSon() != null && nodo.getRightSon().getSegundos() < nodo.getSegundos()){
+           Nodo_Documento temp = new Nodo_Documento(nodo.getRightSon().getNombre(), nodo.getRightSon().getTipo(), nodo.getRightSon().getSize(), nodo.getRightSon().getSegundos(), nodo.getRightSon().isPrio());
+          Nodo_Documento temp2 = new Nodo_Documento(nodo.getNombre(),nodo.getTipo(),nodo.getSize(),nodo.getSegundos(),nodo.isPrio());
+           
+           Nodo_Documento rightSon = nodo.getRightSon();
+           rightSon.setLeftSon(null);
+           rightSon.setRightSon(null);
+           
+           
+           nodo.setRightSon(null);
+           nodo.setLeftSon(null);
+           
+           
+           
+           Nodo_Documento node = swapNodes(nodo, rightSon);
+           
+           node.setRightSon(nodo);
+           node.setLeftSon(temp2.getLeftSon());
+           
+           nodo.setLeftSon(temp.getLeftSon());
+           nodo.setRightSon(temp.getRightSon());
+           
+            if(isFirstTime){
+           setRoot(node);
+           heapifyDown(nodo, false);
+            }else{
+             getRoot().setRightSon(node);
+             heapifyDown(nodo, false);
+            }
+       }
+       
+       else{
+           heapifyUp(nodo);
        }
     }
     
-    public void swapNodes(Nodo_Documento n1, Nodo_Documento n2){
+    public Nodo_Documento swapNodes(Nodo_Documento n1, Nodo_Documento n2){
         Nodo_Documento temp = n1;
         n1 = n2;
         n2 = temp;
+        return n1;
     }
     
     public int getSize(Nodo_Documento node) {

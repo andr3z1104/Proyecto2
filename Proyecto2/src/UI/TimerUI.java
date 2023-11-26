@@ -19,6 +19,7 @@ public class TimerUI extends javax.swing.JFrame {
     private int horas = 0;
     private int minutos = 0;
     private int segundos = 0;
+    private int segundosTi = 0;
     private boolean isRunning = true;
 
 
@@ -44,6 +45,7 @@ public class TimerUI extends javax.swing.JFrame {
     
     private void UpdateTime(){
         segundos++;
+        segundosTi++;
         
         if(segundos == 60){
             segundos = 0;
@@ -169,4 +171,18 @@ public class TimerUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
+    public int getSegundosTi() {
+        return segundosTi;
+    }
+
+    public void setSegundosTi(int segundos) {
+        this.segundosTi = segundos;
+    }
+    
+    
+    
+    
+    
+    
 }

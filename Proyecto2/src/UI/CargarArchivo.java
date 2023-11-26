@@ -5,6 +5,7 @@
 package UI;
 
 import clases.csv;
+import clases.Bin_Heap;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -76,7 +77,11 @@ public class CargarArchivo extends javax.swing.JFrame {
             String Ruta = jFileChooser.getSelectedFile().getPath();
             JOptionPane.showMessageDialog(null, "El archivo se leyó ");
             csv c=new csv();
+            Bin_Heap bin = new Bin_Heap();
             
+            TimerUI timer = new TimerUI();
+            timer.setVisible(true);
+
             usuariosSistema window=new usuariosSistema();
             window.setPath(Ruta);
             window.setVisible(true);
@@ -84,9 +89,10 @@ public class CargarArchivo extends javax.swing.JFrame {
             SistemaOperativo ventana = new SistemaOperativo();
             ventana.setPath(Ruta);
             ventana.setUsuarios(c.leer(Ruta));
-            ventana.setVisible(true);
             ventana.setUc(window);
-            
+            ventana.setBin(bin);
+            ventana.setTi(timer);
+            ventana.setVisible(true);
             this.dispose();
         }
 

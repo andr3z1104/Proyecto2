@@ -19,6 +19,8 @@ public class AgregarUsuario extends javax.swing.JFrame {
     private String path;
     private Lista usuarios;
     private usuariosSistema uc;
+    private Bin_Heap bin;
+    private TimerUI ti;
     
     /**
      * Creates new form AgregarUsuario
@@ -146,6 +148,8 @@ public class AgregarUsuario extends javax.swing.JFrame {
         ventana.setPath(getPath());
         ventana.setUsuarios(getUsuarios());
         ventana.setUc(getUc());
+        ventana.setBin(getBin());
+        ventana.setTi(getTi());
         ventana.setVisible(true);
         
     }//GEN-LAST:event_VolverAgregarUsuarioButActionPerformed
@@ -158,9 +162,9 @@ public class AgregarUsuario extends javax.swing.JFrame {
           csv C2 = new csv();
         if (NombreText.getText().equalsIgnoreCase("") || C2.ObtenerStr(getPath()).equalsIgnoreCase(NombreText.getText())){
             if (NombreText.getText().equalsIgnoreCase("")){
-           JOptionPane.showMessageDialog(null, "Por favor ingrese un nombbre valido");
+           JOptionPane.showMessageDialog(null, "Por favor ingrese un nombre valido");
            }
-            else if (NombreText.getText().equalsIgnoreCase(C2.ObtenerStr(getPath()))){
+            else if (C2.ObtenerStr(getPath()).contains(NombreText.getText())){
                JOptionPane.showMessageDialog(null, "El usuario ya existe, solo puede agregar nuevos usuarios");
                NombreText.setText("");
            }
@@ -268,6 +272,26 @@ public class AgregarUsuario extends javax.swing.JFrame {
         this.uc = uc;
     }
 
+    public Bin_Heap getBin() {
+        return bin;
+    }
+
+    public void setBin(Bin_Heap bin) {
+        this.bin = bin;
+    }
+
+    public TimerUI getTi() {
+        return ti;
+    }
+
+    public void setTi(TimerUI ti) {
+        this.ti = ti;
+    }
+
+   
+    
+    
+    
     
     
 

@@ -135,7 +135,7 @@ public class usuariosSistema extends javax.swing.JFrame {
         Nodo pointer = getLista_Usuarios().getHead();
         while(pointer != null){
             if(((Usuario)pointer.getElement()).getNombre().equalsIgnoreCase(w)){
-                System.out.println("AA");
+ 
                 Usuario user = (Usuario) pointer.getElement();
                
                 Nodo d = user.getDocumentos().getHead();

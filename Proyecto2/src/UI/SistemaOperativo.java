@@ -5,6 +5,8 @@
 package UI;
 
 import clases.Lista;
+import clases.Bin_Heap;
+
 
 /**
  *
@@ -14,6 +16,8 @@ public class SistemaOperativo extends javax.swing.JFrame {
     private String path;
     private Lista usuarios;
     private usuariosSistema uc;
+    private Bin_Heap bin;
+    private TimerUI ti;
     /**
      * Creates new form SistemaOperativo
      */
@@ -119,6 +123,8 @@ public class SistemaOperativo extends javax.swing.JFrame {
         ventanamodificar.setPath(getPath());
         ventanamodificar.setVisible(true);
         ventanamodificar.setUc(getUc());
+        ventanamodificar.setBin(getBin());
+        ventanamodificar.setTi(getTi());
         this.dispose();
     }//GEN-LAST:event_ModificarUsuarioButActionPerformed
 
@@ -130,6 +136,8 @@ public class SistemaOperativo extends javax.swing.JFrame {
         ventanamodificar.setUsuarios(getUsuarios());
         ventanamodificar.setVisible(true);
         ventanamodificar.setUc(getUc());
+        ventanamodificar.setBin(getBin());
+        ventanamodificar.setTi(getTi());
         this.dispose();
     }//GEN-LAST:event_ModificarDocumentosButActionPerformed
 
@@ -137,7 +145,13 @@ public class SistemaOperativo extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         Impresora ventana = new Impresora();
+        ventana.setPath(getPath());
+        ventana.setUsuarios(getUsuarios());
+        ventana.setUc(getUc());
+        ventana.setBin(getBin());
+        ventana.setTi(getTi());
         ventana.setVisible(true);
+        
     }//GEN-LAST:event_ImpresoraButActionPerformed
 
     /**
@@ -221,6 +235,24 @@ public class SistemaOperativo extends javax.swing.JFrame {
         this.uc = uc;
     }
 
+    public Bin_Heap getBin() {
+        return bin;
+    }
+
+    public void setBin(Bin_Heap bin) {
+        this.bin = bin;
+    }
+
+    public TimerUI getTi() {
+        return ti;
+    }
+
+    public void setTi(TimerUI ti) {
+        this.ti = ti;
+    }
+
+    
+    
 
 
 }

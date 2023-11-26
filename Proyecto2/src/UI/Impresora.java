@@ -15,6 +15,8 @@ public class Impresora extends javax.swing.JFrame {
     private String path;
     private Lista usuarios;
     private usuariosSistema uc;
+    private Bin_Heap bin;
+    private TimerUI ti;
 
     /**
      * Creates new form Impresora
@@ -41,6 +43,7 @@ public class Impresora extends javax.swing.JFrame {
         VolverImpresoraBut = new javax.swing.JButton();
         ImprimirBut1 = new javax.swing.JButton();
         EnviarDocumento = new javax.swing.JButton();
+        Cola = new javax.swing.JButton();
         FondoImpresora = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,6 +107,17 @@ public class Impresora extends javax.swing.JFrame {
         });
         getContentPane().add(EnviarDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 210, -1));
 
+        Cola.setBackground(new java.awt.Color(0, 0, 0));
+        Cola.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Cola.setForeground(new java.awt.Color(255, 255, 255));
+        Cola.setText("Ver Cola de Impresion");
+        Cola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ColaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Cola, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
+
         FondoImpresora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoImpresora.png"))); // NOI18N
         getContentPane().add(FondoImpresora, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 380));
 
@@ -117,6 +131,8 @@ public class Impresora extends javax.swing.JFrame {
         ventana.setPath(getPath());
         ventana.setUsuarios(getUsuarios());
         ventana.setUc(getUc());
+        ventana.setBin(getBin());
+        ventana.setTi(getTi());
         ventana.setVisible(true);
     }//GEN-LAST:event_VolverImpresoraButActionPerformed
 
@@ -124,6 +140,11 @@ public class Impresora extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         BorrarDocEspecifico ventana = new BorrarDocEspecifico();
+        ventana.setPath(getPath());
+        ventana.setUsuarios(getUsuarios());
+        ventana.setUc(getUc());
+        ventana.setBin(getBin());
+        ventana.setTi(getTi());
         ventana.setVisible(true);
     }//GEN-LAST:event_BorrarDocEspecificoButActionPerformed
 
@@ -131,8 +152,19 @@ public class Impresora extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         EnviarDocumento ventana = new EnviarDocumento();
+        ventana.setPath(getPath());
+        ventana.setUsuarios(getUsuarios());
+        ventana.setUc(getUc());
+        ventana.setBin(getBin());
+        ventana.setTi(getTi());
         ventana.setVisible(true);
     }//GEN-LAST:event_EnviarDocumentoActionPerformed
+
+    private void ColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColaActionPerformed
+       
+        Graficar_Bin Gbin = new Graficar_Bin(getBin());
+        Gbin.mostrar();
+    }//GEN-LAST:event_ColaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,6 +203,7 @@ public class Impresora extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BorrarDocEspecificoBut;
+    private javax.swing.JButton Cola;
     private javax.swing.JButton EnviarDocumento;
     private javax.swing.JLabel FondoImpresora;
     private javax.swing.JButton ImprimirBut;
@@ -204,8 +237,25 @@ public class Impresora extends javax.swing.JFrame {
         this.uc = uc;
     }
 
-    
+    public Bin_Heap getBin() {
+        return bin;
+    }
 
+    public void setBin(Bin_Heap bin) {
+        this.bin = bin;
+    }
+
+    public TimerUI getTi() {
+        return ti;
+    }
+
+    public void setTi(TimerUI ti) {
+        this.ti = ti;
+    }
+
+    
+    
+    
 
 
 }

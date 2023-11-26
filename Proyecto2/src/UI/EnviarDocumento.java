@@ -19,6 +19,8 @@ public class EnviarDocumento extends javax.swing.JFrame {
     private String path;
     private Lista usuarios;
     private usuariosSistema uc;
+    private Bin_Heap bin;
+    private TimerUI ti;
     
     /**
      * Creates new form AgregarUsuario
@@ -154,6 +156,8 @@ public class EnviarDocumento extends javax.swing.JFrame {
         ventana.setPath(getPath());
         ventana.setUsuarios(getUsuarios());
         ventana.setUc(getUc());
+        ventana.setBin(getBin());
+        ventana.setTi(getTi());
         ventana.setVisible(true);
         
     }//GEN-LAST:event_VolverEnviarDocumentoButActionPerformed
@@ -163,7 +167,65 @@ public class EnviarDocumento extends javax.swing.JFrame {
     }//GEN-LAST:event_SiButActionPerformed
 
     private void EnviarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarButActionPerformed
-        // TODO add your handling code here:
+         csv C2 = new csv();
+//        if (NombreUsuarioText.getText().equalsIgnoreCase("") || C2.ObtenerStr(getPath()).equalsIgnoreCase(NombreUsuarioText.getText())){
+            if (NombreUsuarioText.getText().equalsIgnoreCase("")){
+           JOptionPane.showMessageDialog(null, "Por favor ingrese un nombre valido");
+           }
+            else if(!C2.ObtenerStr(getPath()).contains(NombreUsuarioText.getText())){
+                JOptionPane.showMessageDialog(null, "El usuario no existe");
+                NombreUsuarioText.setText("");
+            }
+            else if(NombreDocumentoText.getText().equalsIgnoreCase("")){
+                JOptionPane.showMessageDialog(null, "Por favor ingrese el nombre del documento");
+                NombreDocumentoText.setText("");
+            }
+        else{
+            String nombre_user = NombreUsuarioText.getText();
+            String nombre_docu = NombreDocumentoText.getText();
+            Nodo pointer = getUsuarios().getHead();
+            Usuario user = (Usuario) pointer.getElement();
+            String choice = null;
+            boolean prio = true;
+            
+            for (Enumeration buttons = buttonGroup1.getElements(); buttons.hasMoreElements();) {
+                AbstractButton button = (AbstractButton) buttons.nextElement();
+                if (button.isSelected()) {
+                    choice = button.getText();
+                    break;
+                }
+            }
+            
+            if(choice.equalsIgnoreCase("No")){
+                prio = false;
+            }
+            
+            
+            while(pointer != null){
+            if(((Usuario)pointer.getElement()).getNombre().equalsIgnoreCase(nombre_user)){
+                user = (Usuario) pointer.getElement();
+                break;
+            }else{
+                pointer = pointer.getNext();
+                }
+            }
+            
+            Nodo d = user.getDocumentos().getHead();
+            while( d != null){
+                if(((Documento) d.getElement()).getNombre().equalsIgnoreCase(nombre_docu)){
+                    Documento doc = (Documento) d.getElement();
+                    getBin().insertNodo(doc.getNombre(), doc.getTipo(), doc.getSize(), prio, getTi().getSegundosTi(), user);
+                    setBin(getBin());
+                    break;
+                    
+                }
+                else{
+                    d = d.getNext();
+                }
+            }
+          }
+        NombreUsuarioText.setText("");
+        NombreDocumentoText.setText("");
     }//GEN-LAST:event_EnviarButActionPerformed
 
     private void NoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoButActionPerformed
@@ -256,7 +318,21 @@ public class EnviarDocumento extends javax.swing.JFrame {
         this.uc = uc;
     }
 
-    
-    
+    public Bin_Heap getBin() {
+        return bin;
+    }
 
+    public void setBin(Bin_Heap bin) {
+        this.bin = bin;
+    }
+
+    public TimerUI getTi() {
+        return ti;
+    }
+
+    public void setTi(TimerUI ti) {
+        this.ti = ti;
+    }
+
+    
 }

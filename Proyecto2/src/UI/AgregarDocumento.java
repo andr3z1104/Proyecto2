@@ -8,6 +8,7 @@ import clases.Documento;
 import clases.Lista;
 import clases.Nodo;
 import clases.Usuario;
+import clases.Bin_Heap;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,8 @@ public class AgregarDocumento extends javax.swing.JFrame {
     private String path;
     private Lista usuarios;
     private usuariosSistema uc;
+    private Bin_Heap bin;
+    private TimerUI ti;
     /**
      * Creates new form AgregarUsuario
      */
@@ -136,6 +139,8 @@ public class AgregarDocumento extends javax.swing.JFrame {
         ventana.setPath(getPath());
         ventana.setUsuarios(getUsuarios());
         ventana.setUc(getUc());
+        ventana.setBin(getBin());
+        ventana.setTi(getTi());
         ventana.setVisible(true);
         this.dispose();
         
@@ -249,6 +254,26 @@ public class AgregarDocumento extends javax.swing.JFrame {
     public void setUc(usuariosSistema uc) {
         this.uc = uc;
     }
+
+    public Bin_Heap getBin() {
+        return bin;
+    }
+
+    public void setBin(Bin_Heap bin) {
+        this.bin = bin;
+    }
+
+    public TimerUI getTi() {
+        return ti;
+    }
+
+    public void setTi(TimerUI ti) {
+        this.ti = ti;
+    }
+
+   
+    
+    
     
     
 }

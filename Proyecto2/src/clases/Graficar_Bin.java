@@ -7,6 +7,7 @@ package clases;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
 import org.graphstream.ui.view.Viewer;
+import javax.swing.JOptionPane;
 
 import java.util.Random;
 
@@ -33,11 +34,13 @@ public class Graficar_Bin {
 
     
      public Graph recurArbol(){
-         Graph g = new SingleGraph("hp");
-         g.addNode(getArbol().getRoot().getNombre());
-         Random r = new Random();
-         returnArbol(getArbol().getRoot(), g, r.nextInt(100000));
-         return g;
+       
+            Graph g = new SingleGraph("hp");
+            g.addNode(getArbol().getRoot().getNombre());
+            Random r = new Random();
+            returnArbol(getArbol().getRoot(), g, r.nextInt(100000));
+            return g;
+         
      }
     
     

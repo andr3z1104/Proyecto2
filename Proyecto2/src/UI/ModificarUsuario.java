@@ -14,6 +14,8 @@ public class ModificarUsuario extends javax.swing.JFrame {
     private String path;
     private Lista usuarios;
     private usuariosSistema uc;
+    private Bin_Heap bin;
+    private TimerUI ti;
     /**
      * Creates new form ModificarUsuario
      */
@@ -99,6 +101,8 @@ public class ModificarUsuario extends javax.swing.JFrame {
         ventanasistema.setPath(getPath());
         ventanasistema.setUsuarios(getUsuarios());
         ventanasistema.setUc(getUc());
+        ventanasistema.setBin(getBin());
+        ventanasistema.setTi(getTi());
         ventanasistema.setVisible(true);
     }//GEN-LAST:event_VolverModificarUsuarioButActionPerformed
 
@@ -109,6 +113,8 @@ public class ModificarUsuario extends javax.swing.JFrame {
         ventanaagregaru.setPath(getPath());
         ventanaagregaru.setUsuarios(getUsuarios());
         ventanaagregaru.setUc(getUc());
+        ventanaagregaru.setBin(getBin());
+        ventanaagregaru.setTi(getTi());
         ventanaagregaru.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_AgregarUsuarioButActionPerformed
@@ -120,6 +126,8 @@ public class ModificarUsuario extends javax.swing.JFrame {
         ventana.setPath(getPath());
         ventana.setUsuarios(getUsuarios());
         ventana.setUc(getUc());
+        ventana.setBin(getBin());
+        ventana.setTi(getTi());
         ventana.setVisible(true);
         this.dispose();
 
@@ -198,6 +206,26 @@ public class ModificarUsuario extends javax.swing.JFrame {
     public void setUc(usuariosSistema uc) {
         this.uc = uc;
     }
+
+    public Bin_Heap getBin() {
+        return bin;
+    }
+
+    public void setBin(Bin_Heap bin) {
+        this.bin = bin;
+    }
+
+    public TimerUI getTi() {
+        return ti;
+    }
+
+    public void setTi(TimerUI ti) {
+        this.ti = ti;
+    }
+
+    
+    
+    
     
     
 }

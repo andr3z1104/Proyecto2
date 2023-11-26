@@ -27,13 +27,13 @@ public class Proyecto_100 {
 //        p.setVisible(true);
 
         Bin_Heap heap = new Bin_Heap();
-        Timer ti = new Timer();
+//        Timer ti = new Timer();
         HashTable h = new HashTable(30);
         Graficar_Bin g = new Graficar_Bin(heap);
         
-        
-        ti.run();
-        ti.setSegundos(50);
+//        
+//        ti.run();
+//        ti.setSegundos(50);
         
         Usuario u = new Usuario("Nicola",1);
         Usuario w = new Usuario("Andres",1);
@@ -47,19 +47,19 @@ public class Proyecto_100 {
 //        Documento doc4 = new Documento("Doc4", "PPTX", 100);
 //        Documento doc5 = new Documento("Doc5", "Win", 100);
         
-        heap.insertNodo("Doc1", "PDF", 100, true, ti, u);
-        ti.setSegundos(60);
-        heap.insertNodo("Doc2", "Word", 100, false, ti, w);
-        ti.setSegundos(100);
-        heap.insertNodo("Doc3", "Pub", 100, false, ti,u);
-        ti.setSegundos(80);
-        heap.insertNodo("Doc4", "PPTX", 100, false, ti,w);
-        ti.setSegundos(90);
-        heap.insertNodo("Doc5", "Win", 100, false, ti,u);
-        ti.setSegundos(120);
-        heap.insertNodo("Doc6", "Win", 100, false, ti,u);
-        ti.setSegundos(300);
-        heap.insertNodo("Doc7", "Win", 100, false, ti,u);
+//        heap.insertNodo("Doc1", "PDF", 100, true, ti, u);
+//        ti.setSegundos(60);
+//        heap.insertNodo("Doc2", "Word", 100, false, ti, w);
+//        ti.setSegundos(100);
+//        heap.insertNodo("Doc3", "Pub", 100, false, ti,u);
+//        ti.setSegundos(80);
+//        heap.insertNodo("Doc4", "PPTX", 100, false, ti,w);
+//        ti.setSegundos(90);
+//        heap.insertNodo("Doc5", "Win", 100, false, ti,u);
+//        ti.setSegundos(120);
+//        heap.insertNodo("Doc6", "Win", 100, false, ti,u);
+//        ti.setSegundos(300);
+//        heap.insertNodo("Doc7", "Win", 100, false, ti,u);
      
         heap.print();
         g.mostrar();

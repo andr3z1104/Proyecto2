@@ -4,12 +4,21 @@
  */
 package UI;
 
+import clases.*;
+
 /**
  *
  * @author ACER
  */
 public class BorrarDocEspecifico extends javax.swing.JFrame {
 
+    private String path;
+    private Lista usuarios;
+    private usuariosSistema uc;
+    private Bin_Heap bin;
+    private TimerUI ti;
+    
+    
     /**
      * Creates new form BorrarDocEspecifico
      */
@@ -149,4 +158,52 @@ public class BorrarDocEspecifico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public Lista getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(Lista usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public usuariosSistema getUc() {
+        return uc;
+    }
+
+    public void setUc(usuariosSistema uc) {
+        this.uc = uc;
+    }
+
+    public Bin_Heap getBin() {
+        return bin;
+    }
+
+    public void setBin(Bin_Heap bin) {
+        this.bin = bin;
+    }
+
+    public TimerUI getTi() {
+        return ti;
+    }
+
+    public void setTi(TimerUI ti) {
+        this.ti = ti;
+    }
+
+    
+
+    
+
+
+
+
 }
