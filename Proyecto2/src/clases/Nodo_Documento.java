@@ -10,16 +10,15 @@ package clases;
  */
 public class Nodo_Documento {
     
-//    private Documento doc;
     private String nombre;
     private String tipo;
     private int size;
-    private int segundos;
+    private double segundos;
     private boolean prio;
     private Nodo_Documento leftSon,rightSon;
     
 
-    public Nodo_Documento(String nombre, String tipo, int size, int segundos, boolean prio) {
+    public Nodo_Documento(String nombre, String tipo, int size, double segundos, boolean prio) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.size = size;
@@ -45,19 +44,11 @@ public class Nodo_Documento {
         this.rightSon = rightSon;
     }
 
-//    public Documento getDoc() {
-//        return doc;
-//    }
-//
-//    public void setDoc(Documento doc) {
-//        this.doc = doc;
-//    }
-
-    public int getSegundos() {
+    public double getSegundos() {
         return segundos;
     }
 
-    public void setSegundos(int segundos) {
+    public void setSegundos(double segundos) {
         this.segundos = segundos;
     }    
 

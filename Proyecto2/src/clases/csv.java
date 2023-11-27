@@ -35,11 +35,11 @@ public class csv {
            while (null!=line) {
               String [] fields = line.split(",");
               int x=0;
-              if (fields[1].equalsIgnoreCase("prioridad_baja")){
+              if (fields[1].trim().equalsIgnoreCase("prioridad_baja")){
                   x=3;    
-              }else if(fields[1].equalsIgnoreCase("prioridad_media")){
+              }else if(fields[1].trim().equalsIgnoreCase("prioridad_media")){
                   x=2;
-              }else if (fields[1].equalsIgnoreCase("prioridad_alta")){
+              }else if (fields[1].trim().equalsIgnoreCase("prioridad_alta")){
                   x=1;
               }
               Usuario usuario = new Usuario(fields[0],x);

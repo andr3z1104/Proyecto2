@@ -8,10 +8,12 @@ package clases;
 public class Bin_Heap {
  
     private Nodo_Documento root;
+    private Queue_Bin q;
    
 
     public Bin_Heap() {
         this.root = null;
+        this.q = new Queue_Bin();
     }
 
     public Nodo_Documento getRoot() {
@@ -26,7 +28,13 @@ public class Bin_Heap {
         return getSize(root);
     }
 
-    
+    public Queue_Bin getQ() {
+        return q;
+    }
+
+    public void setQ(Queue_Bin q) {
+        this.q = q;
+    }
     
     public boolean isEmpty(){
         return getRoot() == null;
@@ -51,8 +59,8 @@ public class Bin_Heap {
         }
     }
     
-    public void insertNodo(String nombre, String tipo, int size, boolean prio, int ti, Usuario usuario){
-//        int segundos = ti.getSegundos();
+    public void insertNodo(String nombre, String tipo, int size, boolean prio, double ti, Usuario usuario){
+
         Nodo_Documento nodo = new Nodo_Documento(nombre, tipo, size, ti, prio);
         
         checkPrio(nodo, usuario);
@@ -82,7 +90,31 @@ public class Bin_Heap {
                         if(pointer.getLeftSon() != null && pointer.getRightSon() != null){
                             pointer = pointer2;
                         }
+                        heapifyUp(nodo);
+                        break;
                     } 
+                }
+                else{
+                     if(pointer.getLeftSon() == null){
+                        pointer.setLeftSon(nodo);
+                        heapifyUp(nodo);
+                        break;
+                    }
+                    else if(pointer.getRightSon() == null){
+                        pointer.setRightSon(nodo);
+                        heapifyUp(nodo);
+                        break;
+                    }
+                    else{
+                        Nodo_Documento pointer2 = pointer.getRightSon();
+                        pointer = pointer.getLeftSon();
+                        
+                        if(pointer.getLeftSon() != null && pointer.getRightSon() != null){
+                            pointer = pointer2;}
+                            heapifyUp(nodo);
+                            break;
+                        
+                    }
                 }
             }
         }
@@ -149,8 +181,68 @@ public class Bin_Heap {
         Nodo_Documento subRoot = searchSubRoot(getRoot(), nodo);
         
         if(nodo.getSegundos() < subRoot.getSegundos()){
-            swapNodes(nodo, subRoot);
-            heapifyUp(nodo);
+            
+            if(subRoot.getLeftSon() == nodo){
+                System.out.println("hola");
+                Nodo_Documento temp = new Nodo_Documento(nodo.getNombre(),nodo.getTipo(),nodo.getSize(),nodo.getSegundos(),nodo.isPrio());
+
+                Nodo_Documento temp2;
+                        temp2 = new Nodo_Documento( subRoot.getNombre(), nodo.getTipo(), nodo.getSize(), nodo.getSegundos(), nodo.isPrio());
+                temp2.setLeftSon(null);
+                temp2.setRightSon(subRoot.getRightSon());
+
+
+                subRoot.setLeftSon(null);
+
+                Nodo_Documento node = swapNodes(subRoot, nodo);
+
+                node.setRightSon(temp2.getRightSon());
+                node.setLeftSon(subRoot);
+
+                nodo.setLeftSon(temp.getLeftSon());
+                nodo.setRightSon(temp.getRightSon());
+                
+                if(subRoot == getRoot()){
+                    setRoot(node);
+                    heapifyUp(node);
+                }
+                else{
+                    heapifyUp(node);
+                }
+            }
+            
+            else if(subRoot.getRightSon() == nodo){
+                System.out.println("dio");
+                        Nodo_Documento temp = new Nodo_Documento(nodo.getNombre(),nodo.getTipo(),nodo.getSize(),nodo.getSegundos(),nodo.isPrio());
+
+                Nodo_Documento temp2;
+                           temp2 = new Nodo_Documento( subRoot.getNombre(), nodo.getTipo(), nodo.getSize(), nodo.getSegundos(), nodo.isPrio());
+                temp2.setLeftSon(subRoot.getLeftSon());
+                temp2.setRightSon(null);
+
+
+                subRoot.setRightSon(null);
+
+                Nodo_Documento node = swapNodes(subRoot, nodo);
+
+                node.setRightSon(subRoot);
+                    node.setLeftSon(temp2.getLeftSon());
+
+                subRoot.setLeftSon(temp.getLeftSon());
+                subRoot.setRightSon(temp.getRightSon());
+                
+                if(subRoot == getRoot()){
+                    setRoot(node);
+                    heapifyUp(node);
+                }
+                else{
+                    heapifyUp(node);
+                }
+            }
+            else{
+                System.out.println("ultima");
+                heapifyUp(nodo);
+            }
         }
     }
     
@@ -260,6 +352,51 @@ public class Bin_Heap {
         n2 = temp;
         return n1;
     }
+    
+    public Bin_Heap deleteSpecific(Bin_Heap bin, String nombre, Usuario user){
+        
+        while(bin.getRoot() != null){
+            Nodo_Documento pointer = bin.deleteMin();
+            pointer.setLeftSon(null);
+            pointer.setRightSon(null);
+            bin.getQ().enqueue(pointer);
+        }
+        
+        Nodo pointer2 = bin.getQ().getHead();
+        while(pointer2 != null) {
+            if(((Nodo_Documento)pointer2.getElement()).getNombre().equalsIgnoreCase(nombre)){
+                ((Nodo_Documento)pointer2.getElement()).setSegundos(1);
+                Nodo pointer3 = bin.getQ().dequeue();
+                Nodo_Documento pointer4 = (Nodo_Documento) pointer3.getElement();
+                bin.insertNodo(pointer4.getNombre(), pointer4.getTipo(), pointer4.getSize(), pointer4.isPrio(), pointer4.getSegundos(), user);
+                break;
+            }
+            else{
+                Nodo pointer3 = bin.getQ().dequeue();
+                Nodo_Documento pointer4 = (Nodo_Documento) pointer3.getElement();
+                bin.insertNodo(pointer4.getNombre(), pointer4.getTipo(), pointer4.getSize(), pointer4.isPrio(), pointer4.getSegundos(), user);
+                pointer2 = bin.getQ().getHead();
+            }
+            
+            
+        }
+        
+        bin.deleteMin();
+        
+        return bin;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     public int getSize(Nodo_Documento node) {
         if (node == null) {

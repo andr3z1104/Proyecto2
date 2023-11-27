@@ -1,6 +1,5 @@
 
 package clases;
-//import java.util.Random;
 
 /**
  *
@@ -9,14 +8,12 @@ package clases;
 public class Usuario {
     
     private String nombre;
-//    private int ID;
     private int tipo;
     private Lista Documentos;
 
     public Usuario(String nombre, int tipo) {
         this.nombre = nombre;
         this.tipo = tipo;
-//        this.ID = generarID();
         this.Documentos=new Lista();
     }
     
@@ -44,17 +41,4 @@ public class Usuario {
         this.Documentos = Documentos;
     }
 
-//    public int getID() {
-//        return ID;
-//    }
-//
-//    public void setID(int ID) {
-//        this.ID = ID;
-//    }
-//    
-//    private int generarID(){
-//        Random r = new Random();
-//        return r.nextInt(10000);
-//    }
-    
 }

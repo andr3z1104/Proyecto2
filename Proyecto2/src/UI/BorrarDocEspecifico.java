@@ -5,6 +5,8 @@
 package UI;
 
 import clases.*;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -42,7 +44,7 @@ public class BorrarDocEspecifico extends javax.swing.JFrame {
         VolverBorrarDocEspecificoBut = new javax.swing.JButton();
         NombreUsusarioLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Borrar = new javax.swing.JButton();
         NombreUsuarioText = new javax.swing.JTextField();
         NombreDocumentoText = new javax.swing.JTextField();
         FondoDocEspecificoFondo = new javax.swing.JLabel();
@@ -80,12 +82,17 @@ public class BorrarDocEspecifico extends javax.swing.JFrame {
         jLabel2.setText("Nombre del documento:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Borrar");
-        jButton1.setBorderPainted(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, -1, -1));
+        Borrar.setBackground(new java.awt.Color(0, 0, 0));
+        Borrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Borrar.setForeground(new java.awt.Color(255, 255, 255));
+        Borrar.setText("Borrar");
+        Borrar.setBorderPainted(false);
+        Borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BorrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, -1, -1));
 
         NombreUsuarioText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +100,12 @@ public class BorrarDocEspecifico extends javax.swing.JFrame {
             }
         });
         getContentPane().add(NombreUsuarioText, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 250, 30));
+
+        NombreDocumentoText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreDocumentoTextActionPerformed(evt);
+            }
+        });
         getContentPane().add(NombreDocumentoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 250, 30));
 
         FondoDocEspecificoFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoBorrarDocEspecifico.png"))); // NOI18N
@@ -105,12 +118,57 @@ public class BorrarDocEspecifico extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         Impresora ventana = new Impresora();
+        ventana.setPath(getPath());
+        ventana.setUsuarios(getUsuarios());
+        ventana.setUc(getUc());
+        ventana.setBin(getBin());
+        ventana.setTi(getTi());
         ventana.setVisible(true);
     }//GEN-LAST:event_VolverBorrarDocEspecificoButActionPerformed
 
     private void NombreUsuarioTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreUsuarioTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NombreUsuarioTextActionPerformed
+
+    private void BorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarActionPerformed
+        csv C2 = new csv(); 
+        if (NombreUsuarioText.getText().equalsIgnoreCase("")){
+           JOptionPane.showMessageDialog(null, "Por favor ingrese un nombre valido");
+           }
+            else if(!C2.ObtenerStr(getPath()).contains(NombreUsuarioText.getText())){
+                JOptionPane.showMessageDialog(null, "El usuario no existe");
+                NombreUsuarioText.setText("");
+            }
+            else if(NombreDocumentoText.getText().equalsIgnoreCase("")){
+                JOptionPane.showMessageDialog(null, "Por favor ingrese el nombre del documento");
+                NombreDocumentoText.setText("");
+            }
+        
+        else{
+            String user = NombreUsuarioText.getText();
+            String doc = NombreDocumentoText.getText();
+            Nodo pointer = getUsuarios().getHead();
+            Usuario usera = (Usuario) pointer.getElement();
+            
+            while(pointer != null){
+            if(((Usuario)pointer.getElement()).getNombre().equalsIgnoreCase(user)){
+                usera = (Usuario) pointer.getElement();
+                break;
+            }else{
+                pointer = pointer.getNext();
+                }
+            }
+            
+            setBin(getBin().deleteSpecific(getBin(), doc, usera));
+            JOptionPane.showMessageDialog(rootPane, "Eliminado con exito");
+        }
+        
+    }//GEN-LAST:event_BorrarActionPerformed
+
+    
+    private void NombreDocumentoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreDocumentoTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreDocumentoTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,13 +206,13 @@ public class BorrarDocEspecifico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Borrar;
     private javax.swing.JLabel FondoDocEspecificoFondo;
     private javax.swing.JTextField NombreDocumentoText;
     private javax.swing.JTextField NombreUsuarioText;
     private javax.swing.JLabel NombreUsusarioLabel;
     private javax.swing.JLabel TituloBorrarDocEspecifico;
     private javax.swing.JButton VolverBorrarDocEspecificoBut;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
