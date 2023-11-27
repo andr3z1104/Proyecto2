@@ -6,6 +6,7 @@ package UI;
 
 
 import clases.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -105,9 +106,34 @@ public class BorrarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_VolverBorrarUsuarioButActionPerformed
 
     private void BorrarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarButActionPerformed
-      String nombre = BorrarText.getText();
+      Nodo pointer = getUsuarios().getHead();
+      boolean b = false;
+          while(pointer!=null){
+              if(BorrarText.getText().equalsIgnoreCase(((Usuario) pointer.getElement()).getNombre())){
+                  b=true;
+              }
+              pointer=pointer.getNext();
+          }
+          if(!b){
+              JOptionPane.showMessageDialog(null, "El usuario ingresado no existe");
+                  BorrarText.setText("");
+                  return;
+          }
+        String nombre = BorrarText.getText();
       csv C = new csv();
       C.borrarCSV(getPath(), C.borrarLine(getPath(),nombre));
+      Nodo pointer2 = getUsuarios().getHead();
+      int cont = 0;
+      while (pointer2!=null){
+          if (((Usuario) pointer2.getElement()).getNombre().equalsIgnoreCase(nombre)){
+              break;
+          }
+             cont++;
+             pointer2=pointer2.getNext();
+      }
+      getUsuarios().deleteAtIndex(cont);
+      JOptionPane.showMessageDialog(null, "Borrado exitosamente");
+      BorrarText.setText("");
     }//GEN-LAST:event_BorrarButActionPerformed
 
     /**
