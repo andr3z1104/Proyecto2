@@ -168,14 +168,13 @@ public class EnviarDocumento extends javax.swing.JFrame {
 
     private void EnviarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarButActionPerformed
          Nodo pAux3 = getUsuarios().getHead();
+         boolean b = false;
         while (pAux3!=null){
             if ((((Usuario) pAux3.getElement()).getNombre()).equalsIgnoreCase(NombreUsuarioText.getText())){
                Nodo pointer2=((Usuario) pAux3.getElement()).getDocumentos().getHead();
                while(pointer2!=null){
-                   if ((((Documento) pointer2.getElement()).getNombre()).equalsIgnoreCase(NombreDocumentoText.getText())){
-                       JOptionPane.showMessageDialog(null, "Existe un documento con el mismo nombre");
-                       NombreDocumentoText.setText("");
-                       return;
+                   if ((((Documento) pointer2.getElement()).getNombre()).equalsIgnoreCase(NombreDocumentoText.getText().trim())){
+                       b=true;
                    }
                    pointer2=pointer2.getNext();
                }
@@ -183,7 +182,11 @@ public class EnviarDocumento extends javax.swing.JFrame {
             }
             pAux3=pAux3.getNext();
         }
-        
+        if (!b){
+            JOptionPane.showMessageDialog(null, "No existe el documento");
+                       NombreDocumentoText.setText("");
+                       return;
+        }
         
         csv C2 = new csv();
 //        if (NombreUsuarioText.getText().equalsIgnoreCase("") || C2.ObtenerStr(getPath()).equalsIgnoreCase(NombreUsuarioText.getText())){
