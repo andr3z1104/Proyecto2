@@ -369,6 +369,7 @@ public class Bin_Heap {
                 Nodo pointer3 = bin.getQ().dequeue();
                 Nodo_Documento pointer4 = (Nodo_Documento) pointer3.getElement();
                 bin.insertNodo(pointer4.getNombre(), pointer4.getTipo(), pointer4.getSize(), pointer4.isPrio(), pointer4.getSegundos(), user);
+                bin.deleteMin();
                 break;
             }
             else{
@@ -381,7 +382,7 @@ public class Bin_Heap {
             
         }
         
-        bin.deleteMin();
+        
         
         return bin;
     }

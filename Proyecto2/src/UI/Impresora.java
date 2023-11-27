@@ -167,7 +167,10 @@ public class Impresora extends javax.swing.JFrame {
     }//GEN-LAST:event_EnviarDocumentoActionPerformed
 
     private void ColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColaActionPerformed
-       
+        if (getBin().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Cola de impresión vacia");
+            return;
+        }
         Graficar_Bin Gbin = new Graficar_Bin(getBin());
         Gbin.mostrar();
     }//GEN-LAST:event_ColaActionPerformed

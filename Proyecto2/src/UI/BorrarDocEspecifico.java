@@ -131,6 +131,21 @@ public class BorrarDocEspecifico extends javax.swing.JFrame {
     }//GEN-LAST:event_NombreUsuarioTextActionPerformed
 
     private void BorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarActionPerformed
+         Nodo pointer2 = getUsuarios().getHead();
+      boolean b = false;
+          while(pointer2!=null){
+              if(NombreUsuarioText.getText().equalsIgnoreCase(((Usuario) pointer2.getElement()).getNombre())){
+                  b=true;
+              }
+              pointer2=pointer2.getNext();
+          }
+          if(!b){
+              JOptionPane.showMessageDialog(null, "El usuario ingresado no existe");
+                  NombreUsuarioText.setText("");
+                  return;
+          }
+        
+        
         csv C2 = new csv(); 
         if (NombreUsuarioText.getText().equalsIgnoreCase("")){
            JOptionPane.showMessageDialog(null, "Por favor ingrese un nombre valido");
