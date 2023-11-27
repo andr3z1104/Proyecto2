@@ -1,4 +1,4 @@
-
+ 
 package clases;
 
 /**
@@ -93,7 +93,14 @@ public class Bin_Heap {
         if(isEmpty()){
             System.out.println("El arbol esta vacio");
             return null;
-        }else{
+        }else if(getRoot().getLeftSon()==null && getRoot().getRightSon()==null ){
+            Nodo_Documento d = new Nodo_Documento(getRoot().getNombre(),getRoot().getTipo(),getRoot().getSize(),getRoot().getSegundos(),getRoot().isPrio());
+            setRoot(null);
+            System.out.println("d"+d);
+            return d;
+        }else {
+            
+            
             Nodo_Documento pointer = getRoot();
             Nodo_Documento pointer2 = getLastNode();
             
@@ -102,8 +109,9 @@ public class Bin_Heap {
             pointer2.setLeftSon(pointer.getLeftSon());
             pointer2.setRightSon(pointer.getRightSon());
             heapifyDown(getRoot(), true);
-            
+            System.out.println("hola"+getRoot());
             return pointer;
+            
         }
     }
     

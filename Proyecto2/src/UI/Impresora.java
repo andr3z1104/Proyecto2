@@ -5,6 +5,7 @@
 package UI;
 
 import clases.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -62,6 +63,11 @@ public class Impresora extends javax.swing.JFrame {
         ImprimirBut.setForeground(new java.awt.Color(255, 255, 255));
         ImprimirBut.setText("Imprimir");
         ImprimirBut.setBorderPainted(false);
+        ImprimirBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImprimirButActionPerformed(evt);
+            }
+        });
         getContentPane().add(ImprimirBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 210, 50));
 
         BorrarDocEspecificoBut.setBackground(new java.awt.Color(0, 0, 0));
@@ -165,6 +171,13 @@ public class Impresora extends javax.swing.JFrame {
         Graficar_Bin Gbin = new Graficar_Bin(getBin());
         Gbin.mostrar();
     }//GEN-LAST:event_ColaActionPerformed
+
+    private void ImprimirButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirButActionPerformed
+        Nodo_Documento d = getBin().deleteMin();
+        System.out.println(d);
+        JOptionPane.showMessageDialog(null,"Nombre: "+d.getNombre()+"\n"+"Tipo: "+d.getTipo()+"\n"+"Segundos: "+d.getSegundos()+"\n"+"Tamaño: "+d.getSize()+"\n"+"Prioriridad: "+d.isPrio());
+        System.out.println(getBin().getRoot());
+    }//GEN-LAST:event_ImprimirButActionPerformed
 
     /**
      * @param args the command line arguments
