@@ -5,6 +5,7 @@
 package UI;
 
 import clases.*;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 
@@ -94,6 +95,7 @@ public class BorrarDocEspecifico extends javax.swing.JFrame {
         });
         getContentPane().add(Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, -1, -1));
 
+        NombreUsuarioText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NombreUsuarioText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NombreUsuarioTextActionPerformed(evt);
@@ -101,6 +103,7 @@ public class BorrarDocEspecifico extends javax.swing.JFrame {
         });
         getContentPane().add(NombreUsuarioText, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 250, 30));
 
+        NombreDocumentoText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NombreDocumentoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NombreDocumentoTextActionPerformed(evt);
@@ -174,8 +177,21 @@ public class BorrarDocEspecifico extends javax.swing.JFrame {
                 }
             }
             
-            setBin(getBin().deleteSpecific(getBin(), doc, usera));
+            try{
+            if(getBin().getRoot().getNombre().equalsIgnoreCase(doc)){
+                Nodo_Documento name = getBin().deleteMin();
+                setBin(getBin());
+            }
+            else{
+                setBin(getBin().deleteSpecific(getBin(), doc, usera));
+            }
             JOptionPane.showMessageDialog(rootPane, "Eliminado con exito");
+            }
+            catch(HeadlessException e){
+                JOptionPane.showMessageDialog(rootPane, "El documento no existe");
+            }
+            
+            
         }
         
     }//GEN-LAST:event_BorrarActionPerformed

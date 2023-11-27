@@ -132,6 +132,7 @@ public class EnviarDocumento extends javax.swing.JFrame {
         NombreDocumentoLabel.setText("Nombre del documento:");
         getContentPane().add(NombreDocumentoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
+        NombreDocumentoText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NombreDocumentoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NombreDocumentoTextActionPerformed(evt);

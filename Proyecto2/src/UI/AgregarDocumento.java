@@ -114,12 +114,16 @@ public class AgregarDocumento extends javax.swing.JFrame {
         TamañoLabel.setForeground(new java.awt.Color(255, 255, 255));
         TamañoLabel.setText("Tamaño:");
         getContentPane().add(TamañoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
+
+        TamañoText.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         getContentPane().add(TamañoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 310, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Usuario");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 80, 30));
+
+        usuario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         getContentPane().add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 310, -1));
 
         FondoAgregarDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/FondoAgregarDocumento.png"))); // NOI18N
