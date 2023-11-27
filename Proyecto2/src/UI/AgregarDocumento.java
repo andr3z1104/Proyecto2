@@ -148,16 +148,54 @@ public class AgregarDocumento extends javax.swing.JFrame {
 
     private void AgregarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarButActionPerformed
         String user = usuario.getText();
+        if (user.isBlank()){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese un usuario valido");
+            return;
+        }
+        Nodo pointer = getUsuarios().getHead();
+        boolean b = false;
+          while(pointer!=null){
+              if(usuario.getText().equalsIgnoreCase(((Usuario) pointer.getElement()).getNombre())){
+                  b=true;
+              }
+              pointer=pointer.getNext();
+          }
+          if(!b){
+              JOptionPane.showMessageDialog(null, "El usuario ingresado no existe");
+                  usuario.setText("");
+                  return;
+          }
         String nombre = NombreText.getText();
+        if (nombre.isBlank()){
+            JOptionPane.showMessageDialog(null, "Ingrese un nombre valido");
+            NombreText.setText("");
+            return;
+        }
         String tipo = TipoText.getText();
         String tamaño = TamañoText.getText();
-        int tamaño1=Integer.parseInt(tamaño);
+        int tamaño1;
+        try{
+             tamaño1=Integer.parseInt(tamaño);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un tamaño valido");
+            TamañoText.setText("");
+            return;
+        }
+        
         Nodo pAux = getUsuarios().getHead();
         Documento doc = new Documento(nombre,tipo,tamaño1);
         while (pAux!=null){
             if ((((Usuario) pAux.getElement()).getNombre()).equalsIgnoreCase(user)){
+               Nodo pointer2=((Usuario) pAux.getElement()).getDocumentos().getHead();
+               while(pointer2!=null){
+                   if ((((Documento) pointer2.getElement()).getNombre()).equalsIgnoreCase(nombre)){
+                       JOptionPane.showMessageDialog(null, "Existe un documento con el mismo nombre");
+                       NombreText.setText("");
+                       return;
+                   }
+                   pointer2=pointer2.getNext();
+               }
                 ((Usuario) pAux.getElement()).getDocumentos().insertFinale(doc);
-                System.out.println("hola");
                 break;
             }
             pAux=pAux.getNext();

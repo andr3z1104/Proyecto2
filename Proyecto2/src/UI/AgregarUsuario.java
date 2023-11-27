@@ -160,6 +160,16 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
     private void AgregarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarButActionPerformed
           csv C2 = new csv();
+          Nodo pointer = getUsuarios().getHead();
+          while(pointer!=null){
+              if(NombreText.getText().equalsIgnoreCase(((Usuario) pointer.getElement()).getNombre())){
+                  JOptionPane.showMessageDialog(null, "El usuario ingresado ya existe");
+                  NombreText.setText("");
+                  return;
+                  
+              }
+              pointer=pointer.getNext();
+          }
         if (NombreText.getText().equalsIgnoreCase("") || C2.ObtenerStr(getPath()).equalsIgnoreCase(NombreText.getText())){
             if (NombreText.getText().equalsIgnoreCase("")){
            JOptionPane.showMessageDialog(null, "Por favor ingrese un nombre valido");
@@ -171,10 +181,12 @@ public class AgregarUsuario extends javax.swing.JFrame {
         }else{
         String nombre=NombreText.getText();
         String choice = null;
+        boolean b = false;
             for (Enumeration buttons = buttonGroup1.getElements(); buttons.hasMoreElements();) {
                 AbstractButton button = (AbstractButton) buttons.nextElement();
                 if (button.isSelected()) {
                     choice = button.getText();
+                    b=true;
                     break;
                 }
 //                else{
@@ -182,8 +194,22 @@ public class AgregarUsuario extends javax.swing.JFrame {
 //                    break;
 //                }
             }
+       if (!b){
+           JOptionPane.showMessageDialog(null, "Por favor indique la prioridad");
+           return;
+       }
        csv C = new csv();
+       int x = 0;
+       if (choice.equalsIgnoreCase("prioridad_baja")){
+                  x=3;    
+              }else if(choice.equalsIgnoreCase("prioridad_media")){
+                  x=2;
+              }else if (choice.equalsIgnoreCase("prioridad_alta")){
+                  x=1;
+              }
        C.modificarCSV(getPath(),C2.ObtenerStr(getPath()), nombre,choice);
+       Usuario don = new Usuario(nombre,x);
+       getUsuarios().insertFinale(don);
        JOptionPane.showMessageDialog(null, "El usuario fue añadido exitosamente");
         }
     }//GEN-LAST:event_AgregarButActionPerformed

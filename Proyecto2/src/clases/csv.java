@@ -47,6 +47,7 @@ public class csv {
 
               line = br.readLine();
            }
+           users.deleteBegin();
 
 
 

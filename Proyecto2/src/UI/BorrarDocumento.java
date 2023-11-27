@@ -9,6 +9,7 @@ import clases.Lista;
 import clases.Nodo;
 import clases.Usuario;
 import clases.Bin_Heap;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -119,7 +120,48 @@ public class BorrarDocumento extends javax.swing.JFrame {
 
     private void BorrarButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarButActionPerformed
         String usuario = user.getText();
+        Nodo pointer = getUsuarios().getHead();
+      boolean b = false;
+          while(pointer!=null){
+              if(user.getText().equalsIgnoreCase(((Usuario) pointer.getElement()).getNombre())){
+                  b=true;
+              }
+              pointer=pointer.getNext();
+          }
+          if(!b){
+              JOptionPane.showMessageDialog(null, "El usuario ingresado no existe");
+                  user.setText("");
+                  return;
+          }
         String nombre = BorrarText.getText();
+        if (nombre.isBlank()){
+            JOptionPane.showMessageDialog(null, "Ingrese un nombre de documento valido");
+            BorrarText.setText("");
+            return;
+        }
+        
+        Nodo pAux3 = getUsuarios().getHead();
+        boolean b2 = false;
+        while (pAux3!=null){
+            if ((((Usuario) pAux3.getElement()).getNombre()).equalsIgnoreCase(usuario)){
+               Nodo pointer2=((Usuario) pAux3.getElement()).getDocumentos().getHead();
+               while(pointer2!=null){
+                   if ((((Documento) pointer2.getElement()).getNombre()).equalsIgnoreCase(nombre)){
+                       b2=true;
+                   }
+                   pointer2=pointer2.getNext();
+               }
+                
+            }
+            pAux3=pAux3.getNext();
+        }
+        if(!b2){
+            JOptionPane.showMessageDialog(null, "El usuario no tiene registrado un documento con el nombre ingresado");
+            BorrarText.setText("");
+            return;
+        }
+        
+        
         Nodo pAux = getUsuarios().getHead();
         int cont = 0;
         while (pAux!=null){
@@ -136,6 +178,7 @@ public class BorrarDocumento extends javax.swing.JFrame {
             }
             pAux=pAux.getNext();
         }
+        JOptionPane.showMessageDialog(null, "exitoso");
     }//GEN-LAST:event_BorrarButActionPerformed
 
     /**

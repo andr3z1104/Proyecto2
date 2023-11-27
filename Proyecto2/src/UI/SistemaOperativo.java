@@ -125,6 +125,7 @@ public class SistemaOperativo extends javax.swing.JFrame {
         ventanamodificar.setUc(getUc());
         ventanamodificar.setBin(getBin());
         ventanamodificar.setTi(getTi());
+        ventanamodificar.setUsuarios(getUsuarios());
         this.dispose();
     }//GEN-LAST:event_ModificarUsuarioButActionPerformed
 
